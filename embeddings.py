@@ -10,14 +10,12 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 # Load the cl100k_base tokenizer which is designed to work with the ada-002 model
 tokenizer = tiktoken.get_encoding("cl100k_base")
 
-df = pd.read_csv("processed/autocleaned.csv", index_col=0)
+if os.path.exists("processed/autocleaned.csv"):
+    df = pd.read_csv("processed/autocleaned.csv", index_col=0)
+else:
+    df = pd.read_csv("processed/scraped.csv", index_col=0)
+
 df.columns = ["title", "text"]
-
-# Tokenize the text and save the number of tokens to a new column
-df["n_tokens"] = df.text.apply(lambda x: len(tokenizer.encode(x)))
-
-# Visualize the distribution of the number of tokens per row using a histogram
-df.n_tokens.hist()
 
 max_tokens = 500
 
@@ -72,11 +70,8 @@ for row in df.iterrows():
     else:
         shortened.append(row[1]["text"])
 
-
 df = pd.DataFrame(shortened, columns=["text"])
 df["n_tokens"] = df.text.apply(lambda x: len(tokenizer.encode(x)))
-df.n_tokens.hist()
-
 
 df["embeddings"] = df.text.apply(
     lambda x: openai.Embedding.create(
@@ -88,4 +83,3 @@ df["embeddings"] = df.text.apply(
 )
 
 df.to_csv("processed/embeddings.csv")
-df.head()

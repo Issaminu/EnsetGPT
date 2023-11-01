@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 
-domain = "www.enset-media.ac.ma"  # <- domain to be crawled
+domain = "www.enset-media.ac.ma"  # <- domain that was crawled, it should be the name of the dir under `text/`
 
 
 def remove_newlines(serie):
