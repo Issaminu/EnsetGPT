@@ -1,5 +1,6 @@
 env/*
 text/*
+text*
 text_backup/*
 .env
 autoclean.log

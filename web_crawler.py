@@ -6,12 +6,17 @@ from collections import deque
 from html.parser import HTMLParser
 from urllib.parse import urlparse
 import os
+import PyPDF2
+import io
+import pytesseract
+from PIL import Image
+
 
 # Regex pattern to match a URL
 HTTP_URL_PATTERN = r"^http[s]*://.+"
 
 domain = "enset-media.ac.ma"  # <-  domain to be crawled
-full_url = "https://www.enset-media.ac.ma/"  # <- put your domain to be crawled with https or http
+full_url = "https://www.enset-media.ac.ma/formations/initiales/17776/modules"  # <- put your domain to be crawled with https or http
 
 
 # Create a class to parse the HTML and get the hyperlinks
@@ -107,7 +112,22 @@ def crawl(url):
     # While the queue is not empty, continue crawling
     while queue:
         # Get the next URL from the queue
+
         url = queue.pop()
+
+        if url.startswith(
+            "https://" + local_domain + "/utilisateur/"
+        ) or url.startswith("https://" + local_domain + "/user"):
+            print(
+                "Skipping page: "
+                + url
+                + " ( URL pattern matches '/utilisateur' or '/user' )"
+            )
+            continue
+        if ".xml" in url:
+            print("Skipping page: " + url + " ( URL pattern matches '.xml' )")
+            continue
+
         print(url)  # for debugging and to see the progress
 
         # Save text from the url to a <url>.txt file
@@ -119,8 +139,12 @@ def crawl(url):
             # Get the text from the URL using BeautifulSoup
             soup = BeautifulSoup(requests.get(url).text, "html.parser")
 
-            # Get the text but remove the tags
-            text = soup.get_text()
+            # Get the main-content div, if it exists. Otherwise, get everything from the page
+            main_content = soup.find("div", id="main-content")
+            if main_content:
+                text = main_content.get_text()
+            else:
+                text = soup.get_text()
 
             # If the crawler gets to a page that requires JavaScript, it will stop the crawl
             if "You need to enable JavaScript to run this app." in text:
@@ -134,9 +158,12 @@ def crawl(url):
         # Get the hyperlinks from the URL and add them to the queue
         for link in get_domain_hyperlinks(local_domain, url):
             if link not in seen:
-                if not (
-                    link.endswith(".pdf")
-                    or link.endswith(".jpg")
+                if link.endswith(".pdf"):
+                    save_pdf_text(
+                        link, local_domain
+                    )  # Call the function to save PDF as text
+                elif not (
+                    link.endswith(".jpg")
                     or link.endswith(".png")
                     or link.endswith(".jpeg")
                     or link.endswith(".doc")
@@ -144,6 +171,46 @@ def crawl(url):
                 ):
                     queue.append(link)
                 seen.add(link)
+
+
+def save_pdf_text(url, local_domain):
+    if not os.path.exists("text/"):
+        os.mkdir("text/")
+
+    if not os.path.exists("text/" + local_domain + "/"):
+        os.mkdir("text/" + local_domain + "/")
+    try:
+        # Open the PDF file using requests
+        response = requests.get(url)
+
+        # Check if the response is successful
+        if response.status_code == 200:
+            # Create a PDF file reader
+            pdf_reader = PyPDF2.PdfReader(io.BytesIO(response.content))
+
+            # Initialize a string to store the text content
+            text_content = ""
+
+            # Iterate through each page and extract the text
+            for page_num in range(len(pdf_reader.pages)):
+                page = pdf_reader.pages[page_num]
+                text_content += page.extract_text()
+
+            # Save the text to a text file
+            with open(
+                "TESTT/"
+                + local_domain
+                + "/"
+                + url.split("/")[-1].replace(".pdf", ".txt"),
+                "w",
+                encoding="UTF-8",
+            ) as f:
+                f.write(text_content)
+        else:
+            print("Failed to download PDF:", url)
+    except Exception as e:
+        print("Error while processing PDF:", url)
+        print(e)
 
 
 crawl(full_url)
