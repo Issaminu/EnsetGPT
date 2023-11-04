@@ -10,7 +10,8 @@ import PyPDF2
 import io
 import pytesseract
 from PIL import Image
-
+from pdf2image import convert_from_path
+from pathlib import Path
 
 # Regex pattern to match a URL
 HTTP_URL_PATTERN = r"^http[s]*://.+"
@@ -159,9 +160,7 @@ def crawl(url):
         for link in get_domain_hyperlinks(local_domain, url):
             if link not in seen:
                 if link.endswith(".pdf"):
-                    save_pdf_text(
-                        link, local_domain
-                    )  # Call the function to save PDF as text
+                    handle_pdf(link, local_domain)
                 elif not (
                     link.endswith(".jpg")
                     or link.endswith(".png")
@@ -173,12 +172,18 @@ def crawl(url):
                 seen.add(link)
 
 
-def save_pdf_text(url, local_domain):
+def handle_pdf(url, local_domain):
     if not os.path.exists("text/"):
         os.mkdir("text/")
 
     if not os.path.exists("text/" + local_domain + "/"):
         os.mkdir("text/" + local_domain + "/")
+    extracted_text = save_pdf_text(url, local_domain)
+    if extracted_text.strip():  # Check if the extracted text is empty
+        ocr_scanned_pdf(url, local_domain)  # Perform OCR on scanned PDF
+
+
+def save_pdf_text(url, local_domain):
     try:
         # Open the PDF file using requests
         response = requests.get(url)
@@ -198,7 +203,7 @@ def save_pdf_text(url, local_domain):
 
             # Save the text to a text file
             with open(
-                "TESTT/"
+                "text/"
                 + local_domain
                 + "/"
                 + url.split("/")[-1].replace(".pdf", ".txt"),
@@ -206,6 +211,53 @@ def save_pdf_text(url, local_domain):
                 encoding="UTF-8",
             ) as f:
                 f.write(text_content)
+                return text_content
+        else:
+            print("Failed to download PDF:", url)
+    except Exception as e:
+        print("Error while processing PDF:", url)
+        print(e)
+    return ""
+
+
+# OCR function
+def ocr_scanned_pdf(pdf_url, local_domain):
+    pdf_path = "PDFs/" + local_domain + "/" + pdf_url[8:].replace("/", "_")
+    print(pdf_path)
+    if not os.path.exists(pdf_path):
+        download_pdf(pdf_url, local_domain)
+    if not os.path.exists("text/"):
+        os.mkdir("text/")
+    if not os.path.exists("text/" + local_domain):
+        os.mkdir("text/" + local_domain)
+
+    pages = convert_from_path(pdf_path)
+    for pageNum, imgBlob in enumerate(pages):
+        text = pytesseract.image_to_string(imgBlob, lang="eng")
+        with open(
+            "text/"
+            + local_domain
+            + "/"
+            + pdf_url[8:].replace("/", "_").split("/")[-1].replace(".pdf", ".txt"),
+            "w",
+            encoding="UTF-8",
+        ) as file:
+            file.write(text)
+
+
+def download_pdf(url, local_domain):
+    if not os.path.exists("PDFs/"):
+        os.mkdir("PDFs/")
+    if not os.path.exists("PDFs/" + local_domain + "/"):
+        os.mkdir("PDFs/" + local_domain + "/")
+    filename = Path("PDFs/" + local_domain + "/" + url[8:].replace("/", "_"))
+    try:
+        # Open the PDF file using requests
+        response = requests.get(url)
+
+        # Check if the response is successful
+        if response.status_code == 200:
+            filename.write_bytes(response.content)
         else:
             print("Failed to download PDF:", url)
     except Exception as e:
