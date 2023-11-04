@@ -4,6 +4,10 @@ import os
 
 domain = "www.enset-media.ac.ma"  # <- domain that was crawled, it should be the name of the dir under `text/`
 
+# Create a directory to store the csv files
+if not os.path.exists("processed"):
+    os.mkdir("processed")
+
 
 def remove_newlines(serie):
     serie = serie.str.replace("\n", " ")
