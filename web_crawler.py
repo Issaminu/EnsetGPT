@@ -15,7 +15,7 @@ import concurrent.futures
 
 
 domain = "enset-media.ac.ma"  # <-  domain to be crawled
-full_url = "https://www.enset-media.ac.ma/"  # <- put your domain to be crawled with https or http
+full_url = "https://www.enset-media.ac.ma/formations/initiales/diplome"  # <- put your domain to be crawled with https or http
 
 MAX_WORKERS = 6  # <- number of threads to be used for crawling
 
@@ -126,27 +126,41 @@ def crawl(url):
                 if queue.__len__() == 0:
                     concurrent.futures.wait(futures)
 
+    print("Congrats! Done crawling ", domain)
+
 
 def process_url(url, queue, seen, local_domain):
     if url.startswith("https://" + local_domain + "/utilisateur/") or url.startswith(
         "https://" + local_domain + "/user"
     ):
         print(
-            "Skipping page: "
+            "⏩ Skipping page: "
             + url
             + " ( URL pattern matches '/utilisateur' or '/user' )"
         )
         return
-    if ".xml" in url:
-        print("Skipping page: " + url + " ( URL pattern matches '.xml' )")
-        return
-    if "liste" in url:
-        print("Skipping page: " + url + " ( URL pattern matches 'liste' )")
-        return
     if "?" in url and not "page=" in url.split("?")[-1]:
         print(
-            "Skipping page: " + url + " ( URL pattern contains '?' but not '?page=' )"
+            "⏩ Skipping page: " + url + " ( URL pattern contains '?' but not '?page=' )"
         )
+        return
+    if ".xml" in url:
+        print("⏩ Skipping page: " + url + " ( URL pattern matches '.xml' )")
+        return
+    if "liste" in url:
+        print("⏩ Skipping page: " + url + " ( URL pattern matches 'liste' )")
+        return
+    if "attente" in url:
+        print("⏩ Skipping page: " + url + " ( URL pattern matches 'attente' )")
+        return
+    if "selection" in url:
+        print("⏩ Skipping page: " + url + " ( URL pattern matches 'selection' )")
+        return
+    if "recrutement" in url:
+        print("⏩ Skipping page: " + url + " ( URL pattern matches 'recrutement' )")
+        return
+    if "resultat" in url:
+        print("⏩ Skipping page: " + url + " ( URL pattern matches 'recrutement' )")
         return
     print(f"{GREEN}🔍 {url}{RESET}")  # for debugging and to see the progress
 
@@ -165,10 +179,13 @@ def process_url(url, queue, seen, local_domain):
         soup = BeautifulSoup(response.text, "html.parser")
 
         # Get the main-content div, if it exists. Otherwise, get everything from the page
-        main_content = soup.find("div", class_="content-wrapper")
-        print(main_content)
-        if main_content:
-            text = main_content.get_text()
+        # Find the title element
+        title_element = soup.find("h1", class_="title")
+        # Find the content element
+        main_content_element = soup.find("div", id="main-content")
+
+        if title_element and main_content_element:
+            text = title_element.get_text() + main_content_element.get_text()
         else:
             text = soup.get_text()
 
@@ -194,9 +211,11 @@ def process_url(url, queue, seen, local_domain):
 
 
 def handle_pdf(url, local_domain):
+    if "arab" in url:
+        print("⏩ Skipping PDF: " + url + " ( URL pattern matches 'arab' )")
     pdf_content = download_pdf(url, local_domain)
-
     print("Extracting text from PDF...")
+    # Attempt to extract text from the PDF
     extracted_text = save_pdf_text(pdf_content, url, local_domain)
     if not extracted_text.strip():  # Check if the extracted text is empty
         print("PDF appears to be scanned, using OCR instead...")
