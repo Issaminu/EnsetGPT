@@ -1,6 +1,5 @@
 import requests
 import re
-import urllib.request
 from bs4 import BeautifulSoup
 from collections import deque
 from html.parser import HTMLParser
@@ -11,12 +10,21 @@ import io
 import pytesseract
 from pdf2image import convert_from_bytes
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor
+import concurrent.futures
 
-# Regex pattern to match a URL
-HTTP_URL_PATTERN = r"^http[s]*://.+"
 
 domain = "enset-media.ac.ma"  # <-  domain to be crawled
 full_url = "https://www.enset-media.ac.ma/"  # <- put your domain to be crawled with https or http
+
+MAX_WORKERS = 6  # <- number of threads to be used for crawling
+
+
+# Regex pattern to match a URL
+HTTP_URL_PATTERN = r"^http[s]*://.+"
+# Define ANSI escape codes for text colors
+GREEN = "\033[92m"  # Green text
+RESET = "\033[0m"  # Reset to default text color
 
 
 # Create a class to parse the HTML and get the hyperlinks
@@ -36,17 +44,16 @@ class HyperlinkParser(HTMLParser):
 
 
 # Function to get the hyperlinks from a URL
-def get_hyperlinks(url):
+def get_hyperlinks(response):
     # Try to open the URL and read the HTML
     try:
         # Open the URL and read the HTML
-        with urllib.request.urlopen(url) as response:
-            # If the response is not HTML, return an empty list
-            if not response.info().get("Content-Type").startswith("text/html"):
-                return []
+        # If the response is not HTML, return an empty list
+        if not response.headers.get("Content-Type").startswith("text/html"):
+            return []
 
-            # Decode the HTML
-            html = response.read().decode("utf-8")
+        # Get the HTML
+        html = response.text
     except Exception as e:
         print(e)
         return []
@@ -59,9 +66,9 @@ def get_hyperlinks(url):
 
 
 # Function to get the hyperlinks from a URL that are within the same domain
-def get_domain_hyperlinks(local_domain, url):
+def get_domain_hyperlinks(local_domain, response):
     clean_links = []
-    for link in set(get_hyperlinks(url)):
+    for link in set(get_hyperlinks(response)):
         clean_link = None
 
         # If the link is a URL, check if it is within the same domain
@@ -96,7 +103,7 @@ def crawl(url):
     queue = deque([url])
 
     # Create a set to store the URLs that have already been seen (no duplicates)
-    seen = set([url])
+    seen = set([])
 
     # Create a directory to store the text files
     if not os.path.exists("text/"):
@@ -105,81 +112,85 @@ def crawl(url):
     if not os.path.exists("text/" + local_domain + "/"):
         os.mkdir("text/" + local_domain + "/")
 
-    # Create a directory to store the csv files
-    if not os.path.exists("processed"):
-        os.mkdir("processed")
-
-    # While the queue is not empty, continue crawling
-    while queue:
-        # Get the next URL from the queue
-
-        url = queue.pop()
-        if url.startswith(
-            "https://" + local_domain + "/utilisateur/"
-        ) or url.startswith("https://" + local_domain + "/user"):
-            print(
-                "Skipping page: "
-                + url
-                + " ( URL pattern matches '/utilisateur' or '/user' )"
-            )
-            continue
-        if ".xml" in url:
-            print("Skipping page: " + url + " ( URL pattern matches '.xml' )")
-            continue
-        if "liste" in url:
-            print("Skipping page: " + url + " ( URL pattern matches 'liste' )")
-            continue
-        if "?" in url and not "page=" in url.split("?")[-1]:
-            print(
-                "Skipping page: "
-                + url
-                + " ( URL pattern contains '?' but not '?page=' )"
-            )
-            continue
-        print(url)  # for debugging and to see the progress
-
-        if url.endswith(".pdf"):  # If the URL is a PDF, handle it differently
-            # Create a new thread for handling the PDF and start it
-            handle_pdf(url, local_domain)
-            continue
-
-        # Save text from the url to a <url>.txt file
-        with open(
-            "text/" + local_domain + "/" + url[8:].replace("/", "_") + ".txt",
-            "w",
-            encoding="UTF-8",
-        ) as f:
-            # Get the text from the URL using BeautifulSoup
-            soup = BeautifulSoup(requests.get(url).text, "html.parser")
-
-            # Get the main-content div, if it exists. Otherwise, get everything from the page
-            main_content = soup.find("div", id="content-wrapper")
-            if main_content:
-                text = main_content.get_text()
-            else:
-                text = soup.get_text()
-
-            # If the crawler gets to a page that requires JavaScript, it will stop the crawl
-            if "You need to enable JavaScript to run this app." in text:
-                print(
-                    "Unable to parse page " + url + " due to JavaScript being required"
+    futures = []
+    # Use ThreadPoolExecutor for multi-threading
+    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as executor:
+        # While the queue is not empty, continue crawling
+        while queue:
+            url = queue.pop()
+            if url not in seen:
+                seen.add(url)
+                futures.append(
+                    executor.submit(process_url, url, queue, seen, local_domain)
                 )
+                if queue.__len__() == 0:
+                    concurrent.futures.wait(futures)
 
-            # Otherwise, write the text to the file in the text directory
-            f.write(text)
 
-        # Get the hyperlinks from the URL and add them to the queue
-        for link in get_domain_hyperlinks(local_domain, url):
-            if link not in seen:
-                if not (
-                    link.endswith(".jpg")
-                    or link.endswith(".png")
-                    or link.endswith(".jpeg")
-                    or link.endswith(".doc")
-                    or link.endswith(".docx")
-                ):
-                    queue.append(link)
-                seen.add(link)
+def process_url(url, queue, seen, local_domain):
+    if url.startswith("https://" + local_domain + "/utilisateur/") or url.startswith(
+        "https://" + local_domain + "/user"
+    ):
+        print(
+            "Skipping page: "
+            + url
+            + " ( URL pattern matches '/utilisateur' or '/user' )"
+        )
+        return
+    if ".xml" in url:
+        print("Skipping page: " + url + " ( URL pattern matches '.xml' )")
+        return
+    if "liste" in url:
+        print("Skipping page: " + url + " ( URL pattern matches 'liste' )")
+        return
+    if "?" in url and not "page=" in url.split("?")[-1]:
+        print(
+            "Skipping page: " + url + " ( URL pattern contains '?' but not '?page=' )"
+        )
+        return
+    print(f"{GREEN}🔍 {url}{RESET}")  # for debugging and to see the progress
+
+    if url.endswith(".pdf"):  # If the URL is a PDF, handle it differently
+        handle_pdf(url, local_domain)
+        return
+
+    # Save text from the url to a <url>.txt file
+    with open(
+        "text/" + local_domain + "/" + url[8:].replace("/", "_") + ".txt",
+        "w",
+        encoding="UTF-8",
+    ) as f:
+        response = requests.get(url)
+        # Get the text from the URL using BeautifulSoup
+        soup = BeautifulSoup(response.text, "html.parser")
+
+        # Get the main-content div, if it exists. Otherwise, get everything from the page
+        main_content = soup.find("div", class_="content-wrapper")
+        print(main_content)
+        if main_content:
+            text = main_content.get_text()
+        else:
+            text = soup.get_text()
+
+        # If the crawler gets to a page that requires JavaScript, it will stop the crawl
+        if "You need to enable JavaScript to run this app." in text:
+            print("Unable to parse page " + url + " due to JavaScript being required")
+
+        # Otherwise, write the text to the file in the text directory
+        f.write(text)
+
+    # Get the hyperlinks from the URL and add them to the queue
+    for link in get_domain_hyperlinks(local_domain, response):
+        if link not in seen:
+            if not (
+                link.endswith(".jpg")
+                or link.endswith(".png")
+                or link.endswith(".jpeg")
+                or link.endswith(".doc")
+                or link.endswith(".docx")
+                or link.endswith(".gif")
+            ):
+                queue.append(link)
 
 
 def handle_pdf(url, local_domain):
