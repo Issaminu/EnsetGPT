@@ -9,15 +9,14 @@ import os
 import PyPDF2
 import io
 import pytesseract
-from PIL import Image
-from pdf2image import convert_from_path
+from pdf2image import convert_from_bytes
 from pathlib import Path
 
 # Regex pattern to match a URL
 HTTP_URL_PATTERN = r"^http[s]*://.+"
 
 domain = "enset-media.ac.ma"  # <-  domain to be crawled
-full_url = "https://www.enset-media.ac.ma/formations/initiales/17776/modules"  # <- put your domain to be crawled with https or http
+full_url = "https://www.enset-media.ac.ma/"  # <- put your domain to be crawled with https or http
 
 
 # Create a class to parse the HTML and get the hyperlinks
@@ -115,7 +114,6 @@ def crawl(url):
         # Get the next URL from the queue
 
         url = queue.pop()
-
         if url.startswith(
             "https://" + local_domain + "/utilisateur/"
         ) or url.startswith("https://" + local_domain + "/user"):
@@ -128,8 +126,22 @@ def crawl(url):
         if ".xml" in url:
             print("Skipping page: " + url + " ( URL pattern matches '.xml' )")
             continue
-
+        if "liste" in url:
+            print("Skipping page: " + url + " ( URL pattern matches 'liste' )")
+            continue
+        if "?" in url and not "page=" in url.split("?")[-1]:
+            print(
+                "Skipping page: "
+                + url
+                + " ( URL pattern contains '?' but not '?page=' )"
+            )
+            continue
         print(url)  # for debugging and to see the progress
+
+        if url.endswith(".pdf"):  # If the URL is a PDF, handle it differently
+            # Create a new thread for handling the PDF and start it
+            handle_pdf(url, local_domain)
+            continue
 
         # Save text from the url to a <url>.txt file
         with open(
@@ -141,7 +153,7 @@ def crawl(url):
             soup = BeautifulSoup(requests.get(url).text, "html.parser")
 
             # Get the main-content div, if it exists. Otherwise, get everything from the page
-            main_content = soup.find("div", id="main-content")
+            main_content = soup.find("div", id="content-wrapper")
             if main_content:
                 text = main_content.get_text()
             else:
@@ -159,9 +171,7 @@ def crawl(url):
         # Get the hyperlinks from the URL and add them to the queue
         for link in get_domain_hyperlinks(local_domain, url):
             if link not in seen:
-                if link.endswith(".pdf"):
-                    handle_pdf(link, local_domain)
-                elif not (
+                if not (
                     link.endswith(".jpg")
                     or link.endswith(".png")
                     or link.endswith(".jpeg")
@@ -173,96 +183,82 @@ def crawl(url):
 
 
 def handle_pdf(url, local_domain):
-    if not os.path.exists("text/"):
-        os.mkdir("text/")
+    pdf_content = download_pdf(url, local_domain)
 
-    if not os.path.exists("text/" + local_domain + "/"):
-        os.mkdir("text/" + local_domain + "/")
-    extracted_text = save_pdf_text(url, local_domain)
-    if extracted_text.strip():  # Check if the extracted text is empty
-        ocr_scanned_pdf(url, local_domain)  # Perform OCR on scanned PDF
+    print("Extracting text from PDF...")
+    extracted_text = save_pdf_text(pdf_content, url, local_domain)
+    if not extracted_text.strip():  # Check if the extracted text is empty
+        print("PDF appears to be scanned, using OCR instead...")
+        ocr_scanned_pdf(pdf_content, url, local_domain)
+    print("Done processing PDF:", url)
 
 
-def save_pdf_text(url, local_domain):
-    try:
-        # Open the PDF file using requests
-        response = requests.get(url)
-
-        # Check if the response is successful
-        if response.status_code == 200:
-            # Create a PDF file reader
-            pdf_reader = PyPDF2.PdfReader(io.BytesIO(response.content))
-
-            # Initialize a string to store the text content
+def save_pdf_text(pdf_content, url, local_domain):
+    if pdf_content:
+        try:
+            pdf_reader = PyPDF2.PdfReader(io.BytesIO(pdf_content))
             text_content = ""
 
-            # Iterate through each page and extract the text
             for page_num in range(len(pdf_reader.pages)):
                 page = pdf_reader.pages[page_num]
                 text_content += page.extract_text()
 
-            # Save the text to a text file
-            with open(
+            file_path = (
                 "text/"
                 + local_domain
                 + "/"
-                + url.split("/")[-1].replace(".pdf", ".txt"),
-                "w",
-                encoding="UTF-8",
-            ) as f:
+                + url[8:].replace("/", "_").split("/")[-1]
+                + ".txt"
+            )
+            with open(file_path, "w", encoding="UTF-8") as f:
                 f.write(text_content)
-                return text_content
-        else:
-            print("Failed to download PDF:", url)
-    except Exception as e:
-        print("Error while processing PDF:", url)
-        print(e)
+            return text_content
+        except Exception as e:
+            print("Error while processing PDF:", url)
+            print(e)
     return ""
 
 
-# OCR function
-def ocr_scanned_pdf(pdf_url, local_domain):
-    pdf_path = "PDFs/" + local_domain + "/" + pdf_url[8:].replace("/", "_")
-    print(pdf_path)
-    if not os.path.exists(pdf_path):
-        download_pdf(pdf_url, local_domain)
-    if not os.path.exists("text/"):
-        os.mkdir("text/")
-    if not os.path.exists("text/" + local_domain):
-        os.mkdir("text/" + local_domain)
-
-    pages = convert_from_path(pdf_path)
-    for pageNum, imgBlob in enumerate(pages):
-        text = pytesseract.image_to_string(imgBlob, lang="eng")
-        with open(
-            "text/"
-            + local_domain
-            + "/"
-            + pdf_url[8:].replace("/", "_").split("/")[-1].replace(".pdf", ".txt"),
-            "w",
-            encoding="UTF-8",
-        ) as file:
-            file.write(text)
+def ocr_scanned_pdf(pdf_content, pdf_url, local_domain):
+    if pdf_content:
+        try:
+            pages = convert_from_bytes(pdf_content)
+            for pageNum, imgBlob in enumerate(pages):
+                text = pytesseract.image_to_string(imgBlob, lang="eng")
+                file_path = (
+                    "text/"
+                    + local_domain
+                    + "/"
+                    + pdf_url[8:].replace("/", "_").split("/")[-1]
+                    + "OCR.txt"
+                )
+                with open(file_path, "w", encoding="UTF-8") as file:
+                    file.write(text)
+        except Exception as e:
+            print("Error during OCR:", e)
 
 
 def download_pdf(url, local_domain):
     if not os.path.exists("PDFs/"):
         os.mkdir("PDFs/")
+
     if not os.path.exists("PDFs/" + local_domain + "/"):
         os.mkdir("PDFs/" + local_domain + "/")
+
     filename = Path("PDFs/" + local_domain + "/" + url[8:].replace("/", "_"))
+
     try:
-        # Open the PDF file using requests
         response = requests.get(url)
 
-        # Check if the response is successful
         if response.status_code == 200:
             filename.write_bytes(response.content)
+            return response.content  # Return the PDF content
         else:
             print("Failed to download PDF:", url)
     except Exception as e:
-        print("Error while processing PDF:", url)
-        print(e)
+        print("Error while downloading PDF:", e)
+
+    return None
 
 
 crawl(full_url)
