@@ -4,3 +4,4 @@ text*
 text_backup/*
 .env
 autoclean.log
+PDFs*

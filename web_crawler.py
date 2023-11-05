@@ -25,6 +25,8 @@ HTTP_URL_PATTERN = r"^http[s]*://.+"
 # Define ANSI escape codes for text colors
 GREEN = "\033[92m"  # Green text
 RESET = "\033[0m"  # Reset to default text color
+# Keep track of the number of pages skipped
+skipped = 0
 
 
 # Create a class to parse the HTML and get the hyperlinks
@@ -95,9 +97,6 @@ def get_domain_hyperlinks(local_domain, response):
     return list(set(clean_links))
 
 
-skipped = 0
-
-
 def crawl(url):
     # Parse the URL and get the domain
     local_domain = urlparse(url).netloc
@@ -131,8 +130,8 @@ def crawl(url):
                 concurrent.futures.wait(futures)
             # remove all futures that are done
             futures = [f for f in futures if not f.done()]
-    print("Congrats! Done crawling ", domain)
-    print("Skipped ", skipped, " pages")
+    print("Congrats! Done crawling", domain)
+    print("Skipped", skipped, "pages")
 
 
 def process_url(url, queue, seen, local_domain):

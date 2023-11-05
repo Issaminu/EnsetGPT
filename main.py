@@ -62,18 +62,18 @@ def answer_question(
     """
     Answer a question based on the most similar context from the dataframe texts
     """
-    if rapidAPI_key:
-        url = "https://nlp-translation.p.rapidapi.com/v1/translate"
+    # if rapidAPI_key:
+    #     url = "https://nlp-translation.p.rapidapi.com/v1/translate"
 
-        querystring = {"text": question, "to": "fr", "from": "en"}
+    #     querystring = {"text": question, "to": "fr", "from": "en"}
 
-        headers = {
-            "X-RapidAPI-Key": rapidAPI_key,
-            "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com",
-        }
+    #     headers = {
+    #         "X-RapidAPI-Key": rapidAPI_key,
+    #         "X-RapidAPI-Host": "nlp-translation.p.rapidapi.com",
+    #     }
 
-        response = requests.get(url, headers=headers, params=querystring)
-        question = response.json()["translated_text"]["fr"]
+    #     response = requests.get(url, headers=headers, params=querystring)
+    #     question = response.json()["translated_text"]["fr"]
 
     context = create_context(
         question,
@@ -126,7 +126,7 @@ def answer_question(
         )
         return messages
     except Exception as e:
-        print("yooo")
+        print("Exception:")
         print(e)
         return ""
 
@@ -140,5 +140,5 @@ messages = [
 while True:
     question = input("Question: ")
 
-    messages = answer_question(df, question, messages, debug=False)
+    messages = answer_question(df, question, messages, debug=True)
     print("\n")

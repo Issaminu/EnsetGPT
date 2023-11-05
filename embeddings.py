@@ -17,6 +17,8 @@ else:
 
 df.columns = ["title", "text"]
 
+# Tokenize the text and save the number of tokens to a new column
+df["n_tokens"] = df.text.apply(lambda x: len(tokenizer.encode(x)))
 max_tokens = 500
 
 
