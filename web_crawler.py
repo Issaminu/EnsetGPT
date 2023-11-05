@@ -95,6 +95,9 @@ def get_domain_hyperlinks(local_domain, response):
     return list(set(clean_links))
 
 
+skipped = 0
+
+
 def crawl(url):
     # Parse the URL and get the domain
     local_domain = urlparse(url).netloc
@@ -123,16 +126,17 @@ def crawl(url):
                 futures.append(
                     executor.submit(process_url, url, queue, seen, local_domain)
                 )
-                if queue.__len__() == 0:
-                    concurrent.futures.wait(futures)
-
+            if queue.__len__() == 0:
+                concurrent.futures.wait(futures)
     print("Congrats! Done crawling ", domain)
+    print("Skipped ", skipped, " pages")
 
 
 def process_url(url, queue, seen, local_domain):
     if url.startswith("https://" + local_domain + "/utilisateur/") or url.startswith(
         "https://" + local_domain + "/user"
     ):
+        skipped += 1
         print(
             "⏩ Skipping page: "
             + url
@@ -140,28 +144,20 @@ def process_url(url, queue, seen, local_domain):
         )
         return
     if "?" in url and not "page=" in url.split("?")[-1]:
+        skipped += 1
         print(
             "⏩ Skipping page: " + url + " ( URL pattern contains '?' but not '?page=' )"
         )
         return
-    if ".xml" in url:
-        print("⏩ Skipping page: " + url + " ( URL pattern matches '.xml' )")
-        return
-    if "liste" in url:
-        print("⏩ Skipping page: " + url + " ( URL pattern matches 'liste' )")
-        return
-    if "attente" in url:
-        print("⏩ Skipping page: " + url + " ( URL pattern matches 'attente' )")
-        return
-    if "selection" in url:
-        print("⏩ Skipping page: " + url + " ( URL pattern matches 'selection' )")
-        return
-    if "recrutement" in url:
-        print("⏩ Skipping page: " + url + " ( URL pattern matches 'recrutement' )")
-        return
-    if "resultat" in url:
-        print("⏩ Skipping page: " + url + " ( URL pattern matches 'recrutement' )")
-        return
+    patterns = [".xml", "liste", "attente", "selection", "recrutement", "resultat"]
+    for pattern in patterns:
+        if pattern in url:
+            skipped += 1
+            print(
+                "⏩ Skipping page: " + url + " ( URL pattern matches '" + pattern + "' )"
+            )
+            return
+
     print(f"{GREEN}🔍 {url}{RESET}")  # for debugging and to see the progress
 
     if url.endswith(".pdf"):  # If the URL is a PDF, handle it differently
@@ -212,6 +208,7 @@ def process_url(url, queue, seen, local_domain):
 
 def handle_pdf(url, local_domain):
     if "arab" in url:
+        skipped += 1
         print("⏩ Skipping PDF: " + url + " ( URL pattern matches 'arab' )")
     pdf_content = download_pdf(url, local_domain)
     print("Extracting text from PDF...")
