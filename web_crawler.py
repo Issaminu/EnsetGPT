@@ -98,6 +98,7 @@ def get_domain_hyperlinks(local_domain, response):
 
 
 def crawl(url):
+    global skipped
     # Parse the URL and get the domain
     local_domain = urlparse(url).netloc
 
@@ -135,6 +136,7 @@ def crawl(url):
 
 
 def process_url(url, queue, seen, local_domain):
+    global skipped
     if url.startswith("https://" + local_domain + "/utilisateur/") or url.startswith(
         "https://" + local_domain + "/user"
     ):
@@ -151,6 +153,10 @@ def process_url(url, queue, seen, local_domain):
             "⏩ Skipping page: " + url + " ( URL pattern contains '?' but not '?page=' )"
         )
         return
+    if "formations/filiere/19559/modules" in url:
+        url = "https://www.enset-media.ac.ma/sites/default/files/filiere-ingenieur-ingenierie_informatique-big_data_et_cloud_computing_ii-bdcc.pdf"
+        return
+
     patterns = [".xml", "liste", "attente", "selection", "recrutement", "resultat"]
     for pattern in patterns:
         if pattern in url:
@@ -209,6 +215,7 @@ def process_url(url, queue, seen, local_domain):
 
 
 def handle_pdf(url, local_domain):
+    global skipped
     patterns = ["arab", "conc", "doctorat", "resultat", "li", "principal"]
     for pattern in patterns:
         if pattern in url:
