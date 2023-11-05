@@ -126,8 +126,11 @@ def crawl(url):
                 futures.append(
                     executor.submit(process_url, url, queue, seen, local_domain)
                 )
-            if queue.__len__() == 0:
+            if not queue:
+                # queue is now empty, wait for all futures to finish hoping that some of them will add new urls to the queue
                 concurrent.futures.wait(futures)
+            # remove all futures that are done
+            futures = [f for f in futures if not f.done()]
     print("Congrats! Done crawling ", domain)
     print("Skipped ", skipped, " pages")
 
@@ -207,9 +210,14 @@ def process_url(url, queue, seen, local_domain):
 
 
 def handle_pdf(url, local_domain):
-    if "arab" in url:
-        skipped += 1
-        print("⏩ Skipping PDF: " + url + " ( URL pattern matches 'arab' )")
+    patterns = ["arab", "conc", "doctorat", "resultat", "li", "principal"]
+    for pattern in patterns:
+        if pattern in url:
+            skipped += 1
+            print(
+                "⏩ Skipping page: " + url + " ( URL pattern matches '" + pattern + "' )"
+            )
+            return
     pdf_content = download_pdf(url, local_domain)
     print("Extracting text from PDF...")
     # Attempt to extract text from the PDF
@@ -229,16 +237,16 @@ def save_pdf_text(pdf_content, url, local_domain):
             for page_num in range(len(pdf_reader.pages)):
                 page = pdf_reader.pages[page_num]
                 text_content += page.extract_text()
-
-            file_path = (
-                "text/"
-                + local_domain
-                + "/"
-                + url[8:].replace("/", "_").split("/")[-1]
-                + ".txt"
-            )
-            with open(file_path, "w", encoding="UTF-8") as f:
-                f.write(text_content)
+            if text_content:
+                file_path = (
+                    "text/"
+                    + local_domain
+                    + "/"
+                    + url[8:].replace("/", "_").split("/")[-1]
+                    + ".txt"
+                )
+                with open(file_path, "w", encoding="UTF-8") as f:
+                    f.write(text_content)
             return text_content
         except Exception as e:
             print("Error while processing PDF:", url)
@@ -252,15 +260,16 @@ def ocr_scanned_pdf(pdf_content, pdf_url, local_domain):
             pages = convert_from_bytes(pdf_content)
             for pageNum, imgBlob in enumerate(pages):
                 text = pytesseract.image_to_string(imgBlob, lang="eng")
-                file_path = (
-                    "text/"
-                    + local_domain
-                    + "/"
-                    + pdf_url[8:].replace("/", "_").split("/")[-1]
-                    + "OCR.txt"
-                )
-                with open(file_path, "w", encoding="UTF-8") as file:
-                    file.write(text)
+                if text:
+                    file_path = (
+                        "text/"
+                        + local_domain
+                        + "/"
+                        + pdf_url[8:].replace("/", "_").split("/")[-1]
+                        + "OCR.txt"
+                    )
+                    with open(file_path, "w", encoding="UTF-8") as file:
+                        file.write(text)
         except Exception as e:
             print("Error during OCR:", e)
 
@@ -273,7 +282,11 @@ def download_pdf(url, local_domain):
         os.mkdir("PDFs/" + local_domain + "/")
 
     filename = Path("PDFs/" + local_domain + "/" + url[8:].replace("/", "_"))
+    # If the PDF already exists, return the content
+    if filename.is_file():
+        return filename.read_bytes()
 
+    # Otherwise, download the PDF
     try:
         response = requests.get(url)
 
