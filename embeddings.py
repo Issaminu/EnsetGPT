@@ -85,3 +85,4 @@ df["embeddings"] = df.text.apply(
 )
 
 df.to_csv("processed/embeddings.csv")
+df.head()
