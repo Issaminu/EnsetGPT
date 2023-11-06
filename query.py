@@ -1,17 +1,18 @@
 import os
 import sys
-
-import openai
-from langchain.chains import ConversationalRetrievalChain, RetrievalQA
+from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import DirectoryLoader, TextLoader
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
-from langchain.llms import OpenAI
-from langchain.vectorstores import Chroma
+from langchain.vectorstores.chroma import Chroma
+from langchain.memory import ConversationBufferMemory
+from langchain.schema import HumanMessage, AIMessage, SystemMessage
+from langchain.tools import Tool
+from langchain.agents.types import AgentType
+from langchain.agents import initialize_agent
 from dotenv import load_dotenv
-from langchain.text_splitter import CharacterTextSplitter
 
 
 load_dotenv()
@@ -38,9 +39,15 @@ else:
     else:
         index = VectorstoreIndexCreator().from_loaders([loader])
 
+memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+
+llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
+
 chain = ConversationalRetrievalChain.from_llm(
-    llm=ChatOpenAI(model="gpt-3.5-turbo"),
-    retriever=index.vectorstore.as_retriever(search_kwargs={"k": 4}),
+    llm=llm,
+    retriever=index.vectorstore.as_retriever(search_kwargs={"k": 6}),
+    condense_question_llm=llm,
+    memory=memory,
 )
 
 chat_history = []
