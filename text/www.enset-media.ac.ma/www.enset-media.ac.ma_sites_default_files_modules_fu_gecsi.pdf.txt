@@ -1,0 +1,42 @@
+ROYAUME DU MAROC  
+Ministère de l’Enseignement Supérieur,  
+de la Recherche Scientifique et de la  
+Formation des Cadres  
+   المملكة المغربية 
+وزارة التعليم العالي والبحث العلمي 
+وتكوين االطر  
+Université Hassan II 
+de Casablanca   جامعة الحسن الثاني 
+بالدار البيضاء  
+Ecole Normale Supérieure  
+de l’Enseignement Technique Mohammedia   المدرسة العليا ألساتذة التعليم التقني 
+المحمدية 
+GECSI – Génie  Électrique et Contrôle des Systèmes 
+Industriels  
+Diplôme :  Master d'Université  
+Durée  de formation  : 2 ans 
+Listes des modules  : 
+Semestre  Modules enseignés  
+Semestre 1   
+  Capteurs et instrumentations  
+  Traitement de signal  
+  Automatique linéaire et numérique  
+  Machines électriques  
+  UML et POO java  
+  Techniques d’expression et de communication  
+Semestre 2   
+  Electronique de puissance  
+  Modélisation et commande des convertisseurs statiques  
+  Informatique industrielle  
+  Communication et transmission  
+  Commande avancée  des systèmes   
+  Réseaux locaux industriels  
+Semestre 3   
+  Systèmes Embarqué s 
+  Systèmes automatises de production  
+  Systèmes temps réels  
+  Modélisation et commande des machines électriques  
+  Qualité et audit énergétiques  
+  Ordonnancement et planification de production  
+Semestre 4   
+ Stage ou Mémoire  

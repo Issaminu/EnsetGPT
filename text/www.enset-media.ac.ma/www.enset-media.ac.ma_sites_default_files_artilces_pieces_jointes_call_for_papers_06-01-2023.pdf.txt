@@ -1,0 +1,182 @@
+Authors are warmly invited to submit their original contributions according to the instructions
+depicted in the conference website. All submissions should be done via Easychair Conference
+Management System at : https://easychair.org/conferences/?conf=iraset2023 .The 3rd IEEE International Conference on Innovative Research in Applied Science,
+Engineering and Technology (IRASET'2023) will provide an international forum for
+researchers and industrial investigators to exchange innovative research ideas, recent
+results, and share experiences in the following research topics: (1) Computing and
+Information Technology, (2) Control, Automation and Mechatronics, (3) Artificial
+Intelligence and Optimization Tools, and (4) Intelligent Systems and Emerging
+Technologies. IRASET'2023 allows researchers, students and industrialists to exchange
+ideas and information, build relationships, establish interdisciplinarycollaborations and
+updateinnovationsinthesetopics.
+All accepted and presented papers will be indexed by: IEEE Xplore Digital Library andScopus
+Submissions deadline: (Extended)
+January 05, 2023 January 30, 2023
+Notification of acceptance:
+March 20, 2023
+Camera-ready:
+April 20, 2023
+Conference date :
+May 18-19, 2023Submissions deadline: (Extended)
+January 05, 2023 January 30, 2023
+Notification of acceptance:
+March 20, 2023
+Camera-ready:
+April 20, 2023
+Conference date :
+May 18-19, 2023IEEE Conference Record Number #57153
+May18-19, 2023 |Mohammedia, MoroccoThe 3rd International Conference on Innovative Research 
+in Applied Science, Engineering and Technology
+C A L L  F O R  PA PER S
+IMPORTANT DATES AIM ANDSCOPE
+TOPICS OF INTEREST
+•Agent Based Systems, Expert Systems
+•Bio-inspired Computations and Neural Networks
+•Computer System Design, Performance Evaluation
+•Computer Vision, Computer Security
+•Digital System and Logic Design
+•Dynamic/Continuous/Multi-Objective Optimization
+•Internet Architecture and Applications,
+•Mathematical Programming, Numerical Methods
+•Parallel and Distributed Computing
+•Software Tools/Theory and ApplicationsComputer Science and 
+Information Technology
+•Automated Planning and Scheduling
+•Big Data, Data Mining, Knowledge Representation
+•Distributed Embedded Computing
+•Human Computer Interaction and Virtual Reality
+•Image, Video and Speech Processing
+•Machine and Deep Learning, Behavior Analytics
+•Mobile, Cloud Computing and Virtualization
+•Natural Language Processing
+•Serious Games, Internet Of Things
+•Supervised, Unsupervised and Reinforced Learning•Adaptive, Robust and Co-operative Control
+•Biomedical Instrumentation and Applications
+•Design, Modeling, Control of Motion Systems
+•Electric Vehicles, Transportation, Logistic
+•Energy Management, Sustainable Energy
+•Fuzzy Control, Intelligent Control, Mechatronics
+•Mechanical Engineering, Structural Engineering
+•Mechatronic System Design and Automation
+•Sensor networks, Multi-agent Systems
+•Sensors, Actuators, RoboticsControl, Automation and 
+Mechatronics
+•Security models and policies for smart systems,
+•Smart Buildings, Smart Campus, and Smart cities
+•Smart Grid, smart metering and IIoT
+•Renewable Energy and Smart Management
+•Smart Systems for Sustainable Development
+•Intelligent Transportation and smart mobility
+•Smart robotics and Industry 4.0
+•Smart manufacturing and supply chain
+•Advanced technologies in Telecommunications
+•Smart Education and E-learningSmart Systems and Emerging 
+TechnologiesArtificial Intelligence and 
+Optimization toolsHonorary Committee 
+Houssine AZEDDOUG
+President of Hassan II University of Casablanca, 
+Morocco
+Omar BOUATTANE
+Director of ENSET Mohammedia, Hassan II 
+University of Casablanca, Morocco
+General Chairs
+K. MANSOURI ,ENSET Mohammedia, Morocco
+General Co-Chairs
+M. QBADOU , ENSET Mohammedia, Morocco
+A. RAIHANI , ENSET Mohammedia, Morocco
+Program Chairs
+XIE MIN, CSE, Hong Kong
+A. DOLGUI , IMT Atlantique, France 
+A. SIADAT Arts et Métiers ParisTech, France
+Advisory Chairs
+D. AIT-KADI, Laval University, Canada
+M. TARBOUCHI , RMC, Canada
+K. KARATZA , Aristotle University, Greece
+General Coordinators
+B. BENHALA , FS Meknes, Morocco
+A. SIADAT Arts et Métiers ParisTech, France
+Local Chairs
+N. BELOUAGGADIA , ENSET-M, Morocco 
+L. BAHATTI , ENSET-M, Morocco 
+A. ELMAGRI , ENSET-M, Morocco
+M. EL KHAILI , ENSET-M, Morocco
+A. KHALIDI , ENSAD, Morocco
+H. SAMRI , ENSET-M, Morocco
+M. YOUSSFI , ENSET-M, Morocco
+L. ZAHIRI , ENSET-M, Morocco
+International Advisory Committee
+H. ZDENEK ,CTU in Prague, Czech Republic 
+R. A. RAHIMI , CNU, south Korea
+P. BOUVRY , Univ. of Luxembourg, Luxembour
+M. ABUSHARIAH , KASIT, Jordan
+S.C. EDUARDO , INSA Rouen, France
+A. ELÇI, Aksaray University, Turkey
+A.H. SENHAJI , University of Montreal, Canada
+P. PEREIRA , Universidade NOVA Lisboa, Portugal
+H.A. KADHIM , Babylon University HIILA, IRAQ 
+R. TAVAKKOLI-MOGHADDAM , Univ. Tehran, Iran
+M. TOLLENAERE ,Grenoble INP, UGA, France
+K. VASSILIS ,IH University, Greece
+S. UMASHANKAR , Univ. Riyadh, Saudi ArabiaHonorary Committee 
+Houssine AZEDDOUG
+President of Hassan II University of Casablanca, 
+Morocco
+Omar BOUATTANE
+Director of ENSET Mohammedia, Hassan II 
+University of Casablanca, Morocco
+General Chairs
+K. MANSOURI ,ENSET Mohammedia, Morocco
+General Co-Chairs
+M. QBADOU , ENSET Mohammedia, Morocco
+A. RAIHANI , ENSET Mohammedia, Morocco
+Program Chairs
+XIE MIN, CSE, Hong Kong
+A. DOLGUI , IMT Atlantique, France 
+A. SIADAT Arts et Métiers ParisTech, France
+Advisory Chairs
+D. AIT-KADI, Laval University, Canada
+M. TARBOUCHI , RMC, Canada
+K. KARATZA , Aristotle University, Greece
+General Coordinators
+B. BENHALA , FS Meknes, Morocco
+A. SIADAT Arts et Métiers ParisTech, France
+Local Chairs
+N. BELOUAGGADIA , ENSET-M, Morocco 
+L. BAHATTI , ENSET-M, Morocco 
+A. ELMAGRI , ENSET-M, Morocco
+M. EL KHAILI , ENSET-M, Morocco
+A. KHALIDI , ENSAD, Morocco
+H. SAMRI , ENSET-M, Morocco
+M. YOUSSFI , ENSET-M, Morocco
+L. ZAHIRI , ENSET-M, Morocco
+International Advisory Committee
+H. ZDENEK ,CTU in Prague, Czech Republic 
+R. A. RAHIMI , CNU, south Korea
+P. BOUVRY , Univ. of Luxembourg, Luxembour
+M. ABUSHARIAH , KASIT, Jordan
+S.C. EDUARDO , INSA Rouen, France
+A. ELÇI, Aksaray University, Turkey
+A.H. SENHAJI , University of Montreal, Canada
+P. PEREIRA , Universidade NOVA Lisboa, Portugal
+H.A. KADHIM , Babylon University HIILA, IRAQ 
+R. TAVAKKOLI-MOGHADDAM , Univ. Tehran, Iran
+M. TOLLENAERE ,Grenoble INP, UGA, France
+K. VASSILIS ,IH University, Greece
+S. UMASHANKAR , Univ. Riyadh, Saudi ArabiaCOMMITTEES
+Prof. XIE Min
+Hong Kong 
+(IEEE Fellow Member)
+Prof. Alexandre Dolgui
+France
+(IEEE Fellow Member)
+Prof. DimitriosKyritsis 
+Switzerland
+(IEEE Senior Member)
+Prof. ZdenekHanzalek
+Czech Republic 
+(IEEE Member)INVITEDSPEAKERS
+SUBMISSION
+Prof. AIT-KADI Daoud
+Canada
+(IEEE Member)
+For further information regarding more topics, paper submission, registration, accommodation, and travel, please consult the conference  website : http://www.iraset.org/2023/

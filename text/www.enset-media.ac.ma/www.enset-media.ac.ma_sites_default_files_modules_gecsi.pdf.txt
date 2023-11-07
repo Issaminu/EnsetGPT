@@ -1,0 +1,199 @@
+GECSI - GENIE ELECTRIQUE ET CONTROLE DES 
+SYSTEMES INDUSTRIELS  
+Semestre: 1  
+GECSI-S1M1 - Mathématique 1 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Analyse Numérique  30 h  60%  
+Probabilités et statistiques  26 h  40%  
+GECSI-S1M2 - Mécanique et Energétique 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Mécanique et RDM 28 h  50%  
+Thermodynamique  28 h  50%  
+GECSI-S1M3 - Informatique  
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Algorithmique et programmation langage C  36 h  60%  
+Programmation orientée objet 20 h  40%  
+GECSI-S1M4 - Électrotechnique générale 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Circuits électriques et magnétiques  24 h  40%  
+Systèmes polyphasés et transformateurs  32 h  60%  
+GECSI-S1M5 - Electronique analogique 
+Eléments de module:  Désignation  Volume 
+horaire  Coefficient
+Fonctions électroniques analogiques et chaines 
+d'acquisition  34 h  60%  
+Physique des composants électronique et capteurs  22 h  40%  
+GECSI-S1M6 - Economie et environnement de l’entreprise  
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Economie générale  32 h  70%  
+Environnement socio-économique et institutionnel  16 h  30%  
+GECSI-S1M7 - Techniques d’expression et de communication 1 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Techniques de communication en langue française I 30 h  50%  
+Anglais 1 30 h  50%  
+Semestre: 2  
+GECSI-S2M1 - Mathématiques 2 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Modélisation stochastique  20 h  40%  
+Traitement du signal  36 h  60%  
+GECSI-S2M2 - Techniques de l'Ingénieur 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Conception Mécanique et Dessin Assisté par Ordinateur  28 h  50%  
+Techniques de conceptions électroniques et électriques  28 h  50%  
+GECSI-S2M3 - Electronique Numérique Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Automates programmables industriels 30 h  60%  
+Systèmes logiques  26 h  40%  
+GECSI-S2M4 - Machines Electriques 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Conversion électromécanique DC  20 h  40%  
+Conversion électromécanique AC 36 h  60%  
+GECSI-S2M5 - Automatique Linéaire 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Régulateurs et Représentation d'état  36 h  60%  
+Systèmes échantillonnés  20 h  40%  
+GECSI-S2M6 - Electronique de Puissance 1 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Composants de L’électronique de Puissance 36 h  60%  
+Commande des Composants  de Puissance 20 h  40%  
+GECSI-S2M7 - Comptabilité et Gestion 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Comptabilité générale  24 h  50%  
+Gestion 24 h  50%  
+GECSI-S2M8 - Techniques d’expression et de communication 2 
+Eléments de module:  Désignation  Volume horaire  Coefficient 
+Anglais 2  30 h  40%  
+Techniques de communication en langue française 2  30 h  30%  
+Projet personnel I (soutenance)  30% 
+Semestre: 3  
+GECSI-S3M1 - Mathématiques 3 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Recherche Opérationnelle  30 h  60%  
+Traitement du signal Avancé  26 h  40%  
+GECSI-S3M2 - Electronique de puissance 2 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Convertisseurs statiques I 28 h  50%  
+Convertisseurs statiques II 28 h  50%  
+GECSI-S3M3 - Réseaux électriques 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Production Transport Distribution Energie Electrique  24 h  40%  
+Étude d'équipements des installations électriques MT, BT 32 h 60% 
+GECSI-S3M4 - Informatique industrielle 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Microcontrôleurs et DSP  28 h  50%  
+Réseaux Locaux Industriels 28 h  50%  
+GECSI-S3M5 - Commande des Systèmes Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Asservissement Non Linéaire et commandes optimale  36 h  60%  
+Représentation d’état  échantillonnée 20 h  40%  
+GECSI-S3M6 - Gestion Commerciale et de Production 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Gestion commerciale et Marketing  26 h  50%  
+Gestion de la production et de la qualité  28 h  50%  
+GECSI-S3M7 - Techniques d’expression et de communication 3 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Anglais 3  30 h  50%  
+Techniques de communication en langue française 3  30 h  50%  
+GECSI-S3M8 - Stage d'Initiation 
+Eléments de module:  
+Semestre: 4  
+GECSI-S4M1 - Maintenance Industrielle 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Fonction Maintenance 36 h  60%  
+Gestion de Maintenance Assistée par Ordinateur (GMAO) 20 h 40% 
+GECSI-S4M2 - Systèmes Automatisés de Production 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Automates Programmables Industriels Avancés 36 h  60%  Désignation  Volume horaire  Coefficient 
+Supervision Industrielle 20 h  40%  
+GECSI-S4M3 - Automatique Avancée 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Identification des systèmes dynamiques 22 h  40%  
+Commande non linéaire 34 h  60%  
+GECSI-S4M4 - Systèmes Embarqués 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Architecture des systèmes embarqués 24 h  40%  
+Programmation des systèmes embarqués 32 h  60%  
+GECSI-S4M5 - Modélisation et C ommande des Machines Electriques 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Modélisation des machines électriques 24 h  40%  
+Commande des machines électriques 32 h  60%  
+GECSI-S4M6 - Entreprenariat 1 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Droit de l’entreprise et des TIC  26 h  50%  
+Initiation à l’entreprenariat  26 h  50%  
+GECSI-S4M7 - Techniques d’expression et de communication 4 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient Désignation  Volume horaire  Coefficient 
+Anglais 4  30 h  50% 
+Ethique et Responsabilité Sociétale des Entreprises  30 h  50%  
+GECSI-S4M8 - Bureau d’Etude Industriel 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient  
+Bureau d’Etude Industriel 56 h  100% 
+Semestre: 5  
+GECSI-S5M1 - Systèmes Industriels 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Systèmes industriels discrets 28 h  50%  
+Sureté de fonctionnement des installations industrielles 28 h  50%  
+GECSI-S5M2 - Commande Avancée des Systèmes de Conversion D’éner gie 
+Eléments de module:  
+Désignation  Volume 
+horaire  Coefficient
+Observateurs d’état 28 h  50%  
+Commande sans capteur des systèmes de conversion 
+électrique 28 h  50%  
+GECSI-S5M3 - Systèmes Temps Réel 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Systèmes multitâches et distribués 26 h  40%  
+Programmation des Systèmes temps réel 30 h  60%  
+GECSI-S5M4 - Qualité de L’énergie Et Audit Energétique Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Audit et Efficacité Energétique 28 h  50%  
+Qualité de l’énergie et CEM 28 h  50%  
+GECSI-S5M5 - Qualité, Sécurité et Environnement 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Management de la qualité 28 h  50%  
+Système de Management Intégré QSE 28 h  50%  
+GECSI-S5M6 - Entreprenariat 2 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Contrôle de Gestion  22 h  40%  
+Gestion de Projets  34 h  60%  
+GECSI-S5M7 - Psychosociologie des Organisations et Gestion des Ressources Humaines 
+Eléments de module:  
+Désignation  Volume horaire  Coefficient 
+Gestion des Ressources Humaines  28 h  50%  
+Psychosociologie des Organisations  26 h  50%  
+GECSI-S5M8 - Stage Ingénieur 
+Désignation  Volume horaire  Coefficient  
+Stage Ingénieur HQ 100%  
+Eléments de module:  
+Semestre: 6  
+GECSI-S6M1 - Projet de Fin d'Etude (PFE) Eléments de module:  
