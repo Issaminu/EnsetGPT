@@ -39,25 +39,66 @@ else:
     else:
         index = VectorstoreIndexCreator().from_loaders([loader])
 
+
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
-llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo")
+llm = ChatOpenAI(temperature=0.7, model="gpt-3.5-turbo-1106")
 
 chain = ConversationalRetrievalChain.from_llm(
     llm=llm,
-    retriever=index.vectorstore.as_retriever(search_kwargs={"k": 6}),
+    retriever=index.vectorstore.as_retriever(search_kwargs={"k": 4}),
     condense_question_llm=llm,
     memory=memory,
 )
 
+system_message = (
+    "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia."
+)
+tools = [
+    Tool(
+        name="qa-enset",
+        func=chain.run,
+        description="Useful when you need to answer ENSET-related questions",
+    )
+]
+
+
+def ask(input: str) -> str:
+    result = ""
+    try:
+        result = executor({"input": input})
+    except Exception as e:
+        response = str(e)
+        if response.startswith("Could not parse LLM output: `"):
+            response = response.removeprefix(
+                "Could not parse LLM output: `"
+            ).removesuffix("`")
+            return response
+        else:
+            raise Exception(str(e))
+    return result
+
+
 chat_history = []
+executor = initialize_agent(
+    agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
+    tools=tools,
+    llm=llm,
+    memory=memory,
+    agent_kwargs={"system_message": system_message},
+    verbose=True,
+    max_execution_time=30,
+    max_iterations=3,
+    handle_parsing_errors=True,
+    early_stopping_method="generate",
+    stop=["\nObservation:"],
+)
 while True:
-    if not query:
-        query = input("Prompt: ")
+    query = input("Prompt: ")
     if query in ["quit", "q", "exit"]:
         sys.exit()
-    result = chain({"question": query, "chat_history": chat_history})
-    print(result["answer"])
+    # result = chain({"question": query, "chat_history": chat_history})
+    result = ask(query)
+    print(result["output"])
 
-    chat_history.append((query, result["answer"]))
-    query = None
+    # chat_history.append((query, result["answer"]))
