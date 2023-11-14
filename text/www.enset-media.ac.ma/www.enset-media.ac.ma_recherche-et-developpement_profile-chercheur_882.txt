@@ -1,7 +1,0 @@
-Profil chercheur
- Pr. MOHAMMED HICHAM  ZAGGAF 
- Etablissement : ENSET Mohammedia, Université Hassan II - Casablanca  
- Grade : P2C 
- Compétences de recherche:  Management et optimisation de l'énergie sur les smart grids
-Optimisation à  base de systèmes multi agents
-Contrôle des processus par l'approche de décomposition coordination

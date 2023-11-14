@@ -1,7 +1,0 @@
-Nous écrire
-Votre nom *
-Votre adresse de courriel *
-Objet *
-Message *
-Quel code est dissimulé dans l'image ? *
-Saisir les caractères affichés dans l'image.

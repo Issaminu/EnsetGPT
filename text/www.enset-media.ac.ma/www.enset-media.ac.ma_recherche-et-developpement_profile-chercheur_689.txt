@@ -1,8 +1,0 @@
-Profil chercheur
- Pr. Mohamed  YOUSSFI 
- Etablissement : ENSET Mohammedia, Université Hassan II - Casablanca  
- Grade : PES 
- Compétences de recherche:  Systèmes parallèles et distribués
-Calcul haute performance
-Big Data et Cloud Computing
-Web sémantique
