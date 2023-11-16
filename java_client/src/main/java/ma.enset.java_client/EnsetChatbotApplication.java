@@ -7,13 +7,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class EnsetChatbotApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(EnsetChatbotApplication.class.getResource("chat-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("EnsetGPT");
         stage.setScene(scene);
+        stage.sizeToScene();
         stage.show();
     }
 
