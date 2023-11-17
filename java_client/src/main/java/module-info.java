@@ -1,4 +1,4 @@
-module ma.enset.javafxfrontendchatbotenset {
+module ma.enset.java_client {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
@@ -7,7 +7,8 @@ module ma.enset.javafxfrontendchatbotenset {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
+    requires spring.web;
 
-    opens ma.enset.javafxfrontendchatbotenset to javafx.fxml;
-    exports ma.enset.javafxfrontendchatbotenset;
+    opens ma.enset.java_client to javafx.fxml;
+    exports ma.enset.java_client;
 }

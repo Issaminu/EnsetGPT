@@ -1,4 +1,4 @@
-package ma.enset.javafxfrontendchatbotenset;
+package ma.enset.java_client;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

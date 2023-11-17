@@ -7,11 +7,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="java_server" />
+        <module name="java_client" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="EnsetGPT-frontend" target="17" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

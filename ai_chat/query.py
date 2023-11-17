@@ -12,8 +12,9 @@ from langchain.schema import HumanMessage, AIMessage, SystemMessage
 from langchain.tools import Tool
 from langchain.agents.types import AgentType
 from langchain.agents import initialize_agent
+import pickle
+import os
 from dotenv import load_dotenv
-
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
@@ -63,7 +64,7 @@ tools = [
 ]
 
 
-def ask(input: str) -> str:
+def getAnswer(input: str) -> str:
     result = ""
     try:
         result = executor({"input": input})
@@ -86,19 +87,41 @@ executor = initialize_agent(
     llm=llm,
     memory=memory,
     agent_kwargs={"system_message": system_message},
-    verbose=True,
+    verbose=False,
     max_execution_time=30,
-    max_iterations=3,
+    max_iterations=6,
     handle_parsing_errors=True,
     early_stopping_method="generate",
     stop=["\nObservation:"],
 )
-while True:
-    query = input("Prompt: ")
-    if query in ["quit", "q", "exit"]:
-        sys.exit()
-    # result = chain({"question": query, "chat_history": chat_history})
-    result = ask(query)
-    print(result["output"])
 
-    # chat_history.append((query, result["answer"]))
+
+def ask(input: str) -> str:
+    global memory
+
+    # Load memory from the txt file if it exists
+    if os.path.exists("memory.txt"):
+        with open("memory.pkl", "rb") as f:
+            memory_data = f.read()
+        memory = pickle.loads(memory_data)
+
+    # Perform the query using the chat chain
+    result = getAnswer(input)
+
+    # Save memory back to the txt file
+    with open("memory.pkl", "wb") as f:
+        memory_data = pickle.dumps(memory)
+        f.write(memory_data)
+
+    return result
+
+
+query = input("Prompt: ")
+if query in ["quit", "q", "exit"]:
+    sys.exit()
+# result = chain({"question": query, "chat_history": chat_history})
+result = ask(query)
+print(memory)
+print(result["output"])
+
+# chat_history.append((query, result["answer"]))

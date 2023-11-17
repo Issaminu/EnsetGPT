@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>ma.enset</groupId>
-  <artifactId>EnsetGPT-frontend</artifactId>
+  <artifactId>java_client</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>javafx-frontend-chatbot-enset</name>
 
@@ -68,7 +68,13 @@
       <artifactId>junit-jupiter-engine</artifactId>
       <version>${junit.version}</version>
       <scope>test</scope>
-    </dependency>  </dependencies>
+    </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+          <version>6.0.13</version>
+      </dependency>
+  </dependencies>
 
   <build>
     <plugins>
