@@ -21,9 +21,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 PERSIST = True
 
-query = None
-if len(sys.argv) > 1:
-    query = sys.argv[1]
+query = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else None
 
 if PERSIST and os.path.exists("persist"):
     vectorstore = Chroma(
@@ -64,7 +62,7 @@ tools = [
 ]
 
 
-def getAnswer(input: str) -> str:
+def ask(input: str) -> str:
     result = ""
     try:
         result = executor({"input": input})
@@ -96,32 +94,11 @@ executor = initialize_agent(
 )
 
 
-def ask(input: str) -> str:
-    global memory
-
-    # Load memory from the txt file if it exists
-    if os.path.exists("memory.txt"):
-        with open("memory.pkl", "rb") as f:
-            memory_data = f.read()
-        memory = pickle.loads(memory_data)
-
-    # Perform the query using the chat chain
-    result = getAnswer(input)
-
-    # Save memory back to the txt file
-    with open("memory.pkl", "wb") as f:
-        memory_data = pickle.dumps(memory)
-        f.write(memory_data)
-
-    return result
-
-
-query = input("Prompt: ")
 if query in ["quit", "q", "exit"]:
     sys.exit()
 # result = chain({"question": query, "chat_history": chat_history})
 result = ask(query)
-print(memory)
+# print(memory)
 print(result["output"])
 
 # chat_history.append((query, result["answer"]))
