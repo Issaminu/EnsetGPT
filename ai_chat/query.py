@@ -7,13 +7,18 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.vectorstores.chroma import Chroma
-from langchain.memory import ConversationBufferMemory
-from langchain.schema import HumanMessage, AIMessage, SystemMessage
+from langchain.memory.chat_message_histories import SQLChatMessageHistory
+from langchain.memory import ConversationBufferMemory, ConversationSummaryMemory
+from langchain.chains.conversational_retrieval.prompts import CONDENSE_QUESTION_PROMPT
+from langchain.chains.retrieval_qa.base import RetrievalQA
+from langchain.schema import HumanMessage, AIMessage, SystemMessage, BaseMessage
+from langchain.chains import StuffDocumentsChain, LLMChain, ConversationalRetrievalChain
+from langchain.prompts import PromptTemplate
 from langchain.tools import Tool
 from langchain.agents.types import AgentType
 from langchain.agents import initialize_agent
-import pickle
-import os
+from langchain.chains.question_answering import load_qa_chain
+import sqlite3
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -27,29 +32,69 @@ if PERSIST and os.path.exists("persist"):
     vectorstore = Chroma(
         persist_directory="persist", embedding_function=OpenAIEmbeddings()
     )
-    index = VectorStoreIndexWrapper(vectorstore=vectorstore)
+    retreiver = VectorStoreIndexWrapper(
+        vectorstore=vectorstore
+    ).vectorstore.as_retriever()
 else:
     # loader = TextLoader("combined.txt")
     loader = DirectoryLoader("text/www.enset-media.ac.ma")
     if PERSIST:
-        index = VectorstoreIndexCreator(
-            vectorstore_kwargs={"persist_directory": "persist"}
-        ).from_loaders([loader])
+        retreiver = (
+            VectorstoreIndexCreator(vectorstore_kwargs={"persist_directory": "persist"})
+            .from_loaders([loader])
+            .vectorstore.as_retriever()
+        )
     else:
-        index = VectorstoreIndexCreator().from_loaders([loader])
+        retreiver = (
+            VectorstoreIndexCreator().from_loaders([loader]).vectorstore.as_retriever()
+        )
 
 
-memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
+conn = sqlite3.connect("persist/chat_history.db")
+cursor = conn.cursor()
+
+cursor.execute("SELECT type, message FROM message_store WHERE session_id = 1")
+
+conversation = [(type, message) for type, message in cursor.fetchall()]
+
+
+conn.close()
 
 llm = ChatOpenAI(temperature=0.7, model="gpt-3.5-turbo-1106")
+print(conversation)
 
-chain = ConversationalRetrievalChain.from_llm(
-    llm=llm,
-    retriever=index.vectorstore.as_retriever(search_kwargs={"k": 4}),
-    condense_question_llm=llm,
-    memory=memory,
+messages = []
+for message in conversation:
+    if message[0] == "human":
+        messages.append(HumanMessage(content=message[1]))
+    else:
+        messages.append(AIMessage(content=message[1]))
+
+
+memory = ConversationBufferMemory(return_messages=True)
+
+question_generator = LLMChain(
+    llm=ChatOpenAI(
+        temperature=0,
+        streaming=True,
+    ),
+    prompt=CONDENSE_QUESTION_PROMPT,
+)
+doc_chain = load_qa_chain(
+    llm=ChatOpenAI(
+        temperature=0,
+        streaming=True,
+    ),
+    chain_type="stuff",
 )
 
+
+chain = RetrievalQA(
+    retriever=retreiver,
+    combine_documents_chain=doc_chain,
+    verbose=True,
+    output_key="output",
+)
 system_message = (
     "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia."
 )
@@ -65,7 +110,7 @@ tools = [
 def ask(input: str) -> str:
     result = ""
     try:
-        result = executor({"input": input})
+        result = agent.run({"input": input, "chat_history": messages})
     except Exception as e:
         response = str(e)
         if response.startswith("Could not parse LLM output: `"):
@@ -79,14 +124,14 @@ def ask(input: str) -> str:
 
 
 chat_history = []
-executor = initialize_agent(
+agent = initialize_agent(
     agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
     tools=tools,
     llm=llm,
-    memory=memory,
     agent_kwargs={"system_message": system_message},
-    verbose=False,
+    verbose=True,
     max_execution_time=30,
+    memory=memory,
     max_iterations=6,
     handle_parsing_errors=True,
     early_stopping_method="generate",
@@ -94,11 +139,5 @@ executor = initialize_agent(
 )
 
 
-if query in ["quit", "q", "exit"]:
-    sys.exit()
-# result = chain({"question": query, "chat_history": chat_history})
 result = ask(query)
-# print(memory)
-print(result["output"])
-
-# chat_history.append((query, result["answer"]))
+print(result)
