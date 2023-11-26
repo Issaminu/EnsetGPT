@@ -40,9 +40,11 @@ public class ApiController {
             // Build the command to execute
             JSONObject jsonObject = new JSONObject(jsonRequest);
             String sessionId = jsonObject.getString("session_id");
+            if(sessionId.isEmpty()) {
+                sessionId = "1";
+            }
             String message = jsonObject.getString("message");
             List<String> command = Arrays.asList("python", "-u", pythonQueryPath, sessionId, message);
-            System.out.println("Executing command: " + command);
             ProcessBuilder processBuilder = new ProcessBuilder(command).directory(aiChatDir);
             Process process = processBuilder.start();
             process.waitFor();

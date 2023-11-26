@@ -37,9 +37,16 @@ public class ChatController {
         messageTextField.clear();
 
         chatListView.scrollTo(chatListView.getItems().size() - 1);
+        String sessionId;
+        if(chatListView.getItems().isEmpty()) {
+            sessionId = null;
+        } else {
+            // TODO: Implement session management logic
+            sessionId = "1";
+        }
 
         new Thread(() -> {
-            String response = sendRequest(message);
+            String response = sendRequest(message, sessionId);
 
             // Update UI with the response on the JavaFX Application Thread
             Platform.runLater(() -> {
@@ -52,7 +59,7 @@ public class ChatController {
     }
 
 
-    private static String sendRequest(String message) {
+    private static String sendRequest(String message, String sessionId) {
 
 
         String backendUrl = "http://localhost:8080/api/send-message";
@@ -62,7 +69,7 @@ public class ChatController {
         headers.add("Content-Type", "application/json");
 
         // Create the request body
-        String requestBody = "{\"message\": \"" + message + "\"}";
+        String requestBody = "{\"message\": \"" + message + "\", \"session_id\": \"" + sessionId + "\"}";
 
         // Create the HttpEntity with headers and body
         HttpEntity<String> requestEntity = new HttpEntity<>(requestBody, headers);
@@ -79,8 +86,7 @@ public class ChatController {
         );
 
         // Handle the response as needed
-        String responseBody = responseEntity.getBody();
-        return responseBody;
+        return responseEntity.getBody();
     }
 
     @FXML
