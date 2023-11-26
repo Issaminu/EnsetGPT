@@ -1,19 +1,16 @@
 import os
 import sys
-from langchain.chains import ConversationalRetrievalChain
 from langchain.chat_models import ChatOpenAI
 from langchain.document_loaders import DirectoryLoader, TextLoader
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.vectorstores.chroma import Chroma
-from langchain.memory.chat_message_histories import SQLChatMessageHistory
-from langchain.memory import ConversationBufferMemory, ConversationSummaryMemory
+from langchain.memory import ConversationBufferMemory
 from langchain.chains.conversational_retrieval.prompts import CONDENSE_QUESTION_PROMPT
 from langchain.chains.retrieval_qa.base import RetrievalQA
-from langchain.schema import HumanMessage, AIMessage, SystemMessage, BaseMessage
-from langchain.chains import StuffDocumentsChain, LLMChain, ConversationalRetrievalChain
-from langchain.prompts import PromptTemplate
+from langchain.schema import HumanMessage, AIMessage
+from langchain.chains import LLMChain
 from langchain.tools import Tool
 from langchain.agents.types import AgentType
 from langchain.agents import initialize_agent
