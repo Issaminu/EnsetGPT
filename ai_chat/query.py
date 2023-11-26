@@ -24,6 +24,8 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 PERSIST = True
 
 query = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else None
+session_id = sys.argv[1]
+query = sys.argv[2:][0]
 
 if PERSIST and os.path.exists("persist"):
     vectorstore = Chroma(
@@ -50,15 +52,14 @@ else:
 conn = sqlite3.connect("persist/chat_history.db")
 cursor = conn.cursor()
 
-cursor.execute("SELECT type, message FROM message_store WHERE session_id = 1")
+cursor.execute(
+    "SELECT type, message FROM message_store WHERE session_id = ?", session_id
+)
 
 conversation = [(type, message) for type, message in cursor.fetchall()]
 
 
-conn.close()
-
 llm = ChatOpenAI(temperature=0.7, model="gpt-3.5-turbo-1106")
-print(conversation)
 
 messages = []
 for message in conversation:
@@ -120,13 +121,12 @@ def ask(input: str) -> str:
     return result
 
 
-chat_history = []
 agent = initialize_agent(
     agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
     tools=tools,
     llm=llm,
     agent_kwargs={"system_message": system_message},
-    verbose=True,
+    verbose=False,
     max_execution_time=30,
     memory=memory,
     max_iterations=6,
@@ -137,4 +137,15 @@ agent = initialize_agent(
 
 
 result = ask(query)
-print(result)
+
+cursor.execute(
+    "INSERT INTO message_store (session_id, message, type) VALUES (?, ?, ?);",
+    [session_id, query, "human"],
+)
+
+cursor.execute(
+    "INSERT INTO message_store (session_id, message, type) VALUES(?, ?, ?);",
+    [session_id, result, "ai"],
+)
+conn.commit()
+conn.close()
