@@ -9,21 +9,25 @@ from langchain.vectorstores.chroma import Chroma
 from langchain.memory import ConversationBufferMemory
 from langchain.chains.conversational_retrieval.prompts import CONDENSE_QUESTION_PROMPT
 from langchain.chains.retrieval_qa.base import RetrievalQA
+from langchain.chains.conversation.base import ConversationChain
 from langchain.schema import HumanMessage, AIMessage
 from langchain.chains import LLMChain
 from langchain.tools import Tool
 from langchain.agents.types import AgentType
 from langchain.agents import initialize_agent
+from langchain.utilities.google_search import GoogleSearchAPIWrapper
 from langchain.chains.question_answering import load_qa_chain
 import sqlite3
 from dotenv import load_dotenv
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = os.getenv("GOOGLE_API_KEY")
+GOOGLE_CSE_ID_ENSET = os.getenv("GOOGLE_CSE_ID_ENSET")
+GOOGLE_CSE_ID_WEB = os.getenv("GOOGLE_CSE_ID_WEB")
 
 PERSIST = True
 
-query = " ".join(sys.argv[1:]) if len(sys.argv) > 1 else None
 session_id = sys.argv[1]
 query = sys.argv[2:][0]
 
@@ -87,21 +91,43 @@ doc_chain = load_qa_chain(
 )
 
 
-chain = RetrievalQA(
+enset_chain = RetrievalQA(
     retriever=retreiver,
     combine_documents_chain=doc_chain,
     verbose=True,
     output_key="output",
 )
+
+general_chain = ConversationChain(llm=llm)
+
+
 system_message = (
     "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia."
 )
+web_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_WEB)
+enset_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_ENSET)
+
 tools = [
     Tool(
         name="qa-enset",
-        func=chain.run,
+        func=enset_chain.run,
         description="Useful when you need to answer ENSET-related questions",
-    )
+    ),
+    Tool(
+        name="enset-search",
+        func=web_search.run,
+        description="Useful for when you need to look up ENSET-related questions, use only after trying with qa-enset first",
+    ),
+    Tool(
+        name="qa-general",
+        func=general_chain.run,
+        description="Useful when you need to answer non-ENSET-related questions, or when qa-tool or enset-search don't prove useful",
+    ),
+    Tool(
+        name="web-search",
+        func=web_search.run,
+        description="Useful for when you need to look up the web, answer questions about up-to-date events, or when the other tools don't prove useful. Remember to always search in french",
+    ),
 ]
 
 
@@ -122,7 +148,7 @@ def ask(input: str) -> str:
 
 
 agent = initialize_agent(
-    agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
+    agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
     tools=tools,
     llm=llm,
     agent_kwargs={"system_message": system_message},
