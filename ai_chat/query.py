@@ -126,7 +126,7 @@ agent = initialize_agent(
     tools=tools,
     llm=llm,
     agent_kwargs={"system_message": system_message},
-    verbose=False,
+    verbose=True,
     max_execution_time=30,
     memory=memory,
     max_iterations=6,
@@ -139,13 +139,8 @@ agent = initialize_agent(
 result = ask(query)
 
 cursor.execute(
-    "INSERT INTO message_store (session_id, message, type) VALUES (?, ?, ?);",
-    [session_id, query, "human"],
-)
-
-cursor.execute(
-    "INSERT INTO message_store (session_id, message, type) VALUES(?, ?, ?);",
-    [session_id, result, "ai"],
+    "INSERT INTO message_store (session_id, message, type, timestamp) VALUES (?, ?, ?, CURRENT_TIMESTAMP), (?, ?, ?, CURRENT_TIMESTAMP)",
+    [session_id, query, "human", session_id, result, "ai"],
 )
 conn.commit()
 conn.close()
