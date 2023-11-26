@@ -100,10 +100,6 @@ enset_chain = RetrievalQA(
 
 general_chain = ConversationChain(llm=llm)
 
-
-system_message = (
-    "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia."
-)
 web_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_WEB)
 enset_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_ENSET)
 
@@ -126,7 +122,7 @@ tools = [
     Tool(
         name="web-search",
         func=web_search.run,
-        description="Useful for when you need to look up the web, answer questions about up-to-date events, or when the other tools don't prove useful. Remember to always search in french",
+        description="Useful for when you need to look up the web, answer questions about up-to-date events, or when the other tools don't prove useful.",
     ),
 ]
 
@@ -147,6 +143,9 @@ def ask(input: str) -> str:
     return result
 
 
+system_message = (
+    "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia."
+)
 agent = initialize_agent(
     agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
     tools=tools,
