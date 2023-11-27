@@ -1,4 +1,4 @@
-# ENSET AI Chatbot
+# EnsetGPT
 
 This repository is a comprehensive Python codebase designed for web crawling and text processing, organized into distinct scripts. The project's primary objective is to systematically extract and process text content from websites.
 
