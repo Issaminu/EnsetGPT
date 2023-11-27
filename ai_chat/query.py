@@ -57,7 +57,8 @@ conn = sqlite3.connect("persist/chat_history.db")
 cursor = conn.cursor()
 
 cursor.execute(
-    "SELECT type, message FROM message_store WHERE session_id = ?", session_id
+    "SELECT type, message FROM message_store WHERE session_id = ? ORDER BY timestamp DESC LIMIT 10;",
+    session_id,
 )
 
 conversation = [(type, message) for type, message in cursor.fetchall()]
@@ -143,9 +144,7 @@ def ask(input: str) -> str:
     return result
 
 
-system_message = (
-    "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia."
-)
+system_message = "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia. Use the conversation history as context. If the question is too vague, respond by asking for clarification"
 agent = initialize_agent(
     agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
     tools=tools,
