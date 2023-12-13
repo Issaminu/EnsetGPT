@@ -110,20 +110,20 @@ tools = [
         func=enset_chain.run,
         description="Useful when you need to answer ENSET-related questions",
     ),
-    Tool(
-        name="enset-search",
-        func=web_search.run,
-        description="Useful for when you need to look up ENSET-related questions, use only after trying with qa-enset first",
-    ),
-    Tool(
-        name="qa-general",
-        func=general_chain.run,
-        description="Useful when you need to answer non-ENSET-related questions, or when qa-tool or enset-search don't prove useful",
-    ),
+    # Tool(
+    #     name="enset-search",
+    #     func=web_search.run,
+    #     description="Useful for when you need to look up ENSET-related questions, use only after trying with qa-enset first",
+    # ),
+    # Tool(
+    #     name="qa-general",
+    #     func=general_chain.run,
+    #     description="Useful when you need to answer non-ENSET-related questions, or when qa-enset or enset-search don't prove useful",
+    # ),
     Tool(
         name="web-search",
         func=web_search.run,
-        description="Useful for when you need to look up the web, answer questions about up-to-date events, or when the other tools don't prove useful.",
+        description="Useful for when you need to look up the web, get up-to-date information, or when the other tool don't prove useful.",
     ),
 ]
 
@@ -144,9 +144,9 @@ def ask(input: str) -> str:
     return result
 
 
-system_message = "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia. Use the conversation history as context. If the question is too vague, respond by asking for clarification"
+system_message = "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia. Use the conversation history as context. If the question is too vague, respond by asking for clarification. For information tied to time, use the tool web-search to search for the most recent information possible."
 agent = initialize_agent(
-    agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION,
+    agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
     tools=tools,
     llm=llm,
     agent_kwargs={"system_message": system_message},
