@@ -1,8 +1,10 @@
+import json
 import os
 import sys
-from langchain.chat_models import ChatOpenAI
-from langchain.document_loaders import DirectoryLoader, TextLoader
-from langchain.embeddings import OpenAIEmbeddings
+from langchain import hub
+from langchain_community.document_loaders import DirectoryLoader, TextLoader
+from langchain_openai.chat_models import ChatOpenAI
+from langchain_openai.embeddings import OpenAIEmbeddings
 from langchain.indexes import VectorstoreIndexCreator
 from langchain.indexes.vectorstore import VectorStoreIndexWrapper
 from langchain.vectorstores.chroma import Chroma
@@ -13,8 +15,8 @@ from langchain.chains.conversation.base import ConversationChain
 from langchain.schema import HumanMessage, AIMessage
 from langchain.chains import LLMChain
 from langchain.tools import Tool
-from langchain.agents.types import AgentType
-from langchain.agents import initialize_agent
+from langchain.agents.agent_types import AgentType
+from langchain.agents import create_react_agent, AgentExecutor
 from langchain.utilities.google_search import GoogleSearchAPIWrapper
 from langchain.chains.question_answering import load_qa_chain
 import sqlite3
@@ -107,31 +109,38 @@ enset_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_ENSET)
 tools = [
     Tool(
         name="qa-enset",
-        func=enset_chain.run,
+        func=enset_chain.invoke,
         description="Useful when you need to answer ENSET-related questions",
     ),
     # Tool(
     #     name="enset-search",
-    #     func=web_search.run,
+    #     func=web_search.invoke,
     #     description="Useful for when you need to look up ENSET-related questions, use only after trying with qa-enset first",
     # ),
     # Tool(
     #     name="qa-general",
-    #     func=general_chain.run,
+    #     func=general_chain.invoke,
     #     description="Useful when you need to answer non-ENSET-related questions, or when qa-enset or enset-search don't prove useful",
     # ),
-    Tool(
-        name="web-search",
-        func=web_search.run,
-        description="Useful for when you need to look up the web, get up-to-date information, or when the other tool don't prove useful.",
-    ),
+    # Tool(
+    #     name="web-search",
+    #     func=web_search.run,
+    #     description="Useful for when you need to look up the web, get up-to-date information, or when the other tool don't prove useful.",
+    # ),
 ]
 
 
 def ask(input: str) -> str:
     result = ""
     try:
-        result = agent.run({"input": input, "chat_history": messages})
+        # agent = create_react_agent(tools=tools, llm=llm)
+        result = agent_executor.invoke(
+            {
+                "input": "what's my name? Only use a tool if needed, otherwise respond with Final Answer",
+                # Notice that chat_history is a string, since this prompt is aimed at LLMs, not chat models
+                "chat_history": "Human: Hi! My name is Bob\nAI: Hello Bob! Nice to meet you",
+            }
+        )
     except Exception as e:
         response = str(e)
         if response.startswith("Could not parse LLM output: `"):
@@ -145,26 +154,23 @@ def ask(input: str) -> str:
 
 
 system_message = "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia. Use the conversation history as context. If the question is too vague, respond by asking for clarification. For information tied to time, use the tool web-search to search for the most recent information possible."
-agent = initialize_agent(
-    agent=AgentType.CONVERSATIONAL_REACT_DESCRIPTION,
+prompt = hub.pull("hwchase17/react")
+agent = create_react_agent(llm, tools, prompt)
+agent_executor = AgentExecutor(
+    agent=agent,
     tools=tools,
-    llm=llm,
-    agent_kwargs={"system_message": system_message},
     verbose=True,
+    handle_parsing_errors=True,
     max_execution_time=30,
     memory=memory,
     max_iterations=6,
-    handle_parsing_errors=True,
     early_stopping_method="generate",
-    stop=["\nObservation:"],
 )
-
-
 result = ask(query)
-
-cursor.execute(
-    "INSERT INTO message_store (session_id, message, type, timestamp) VALUES (?, ?, ?, CURRENT_TIMESTAMP), (?, ?, ?, CURRENT_TIMESTAMP)",
-    [session_id, query, "human", session_id, result, "ai"],
-)
-conn.commit()
-conn.close()
+print(result["output"])
+# cursor.execute(
+#     "INSERT INTO message_store (session_id, message, type, timestamp) VALUES (?, ?, ?, CURRENT_TIMESTAMP), (?, ?, ?, CURRENT_TIMESTAMP)",
+#     [session_id, query, "human", session_id, result, "ai"],
+# )
+# conn.commit()
+# conn.close()
