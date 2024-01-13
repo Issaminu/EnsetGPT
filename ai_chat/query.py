@@ -16,17 +16,27 @@ from langchain.schema import HumanMessage, AIMessage
 from langchain.chains import LLMChain
 from langchain.tools import Tool
 from langchain.agents.agent_types import AgentType
-from langchain.agents import create_react_agent, AgentExecutor
+from langchain_core.messages.system import SystemMessage
+from langchain.agents import (
+    AgentExecutor,
+    create_react_agent,
+    create_self_ask_with_search_agent,
+    create_openai_tools_agent,
+    initialize_agent,
+)
 from langchain.utilities.google_search import GoogleSearchAPIWrapper
 from langchain.chains.question_answering import load_qa_chain
 import sqlite3
 from dotenv import load_dotenv
+from langchain_community.tools.tavily_search import TavilySearchResults
+
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_CSE_ID_ENSET = os.getenv("GOOGLE_CSE_ID_ENSET")
 GOOGLE_CSE_ID_WEB = os.getenv("GOOGLE_CSE_ID_WEB")
+TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 
 PERSIST = True
 
@@ -59,16 +69,23 @@ conn = sqlite3.connect("persist/chat_history.db")
 cursor = conn.cursor()
 
 cursor.execute(
-    "SELECT type, message FROM message_store WHERE session_id = ? ORDER BY timestamp DESC LIMIT 10;",
+    "SELECT type, message, timestamp FROM message_store WHERE session_id = ? ORDER BY timestamp ASC LIMIT 20;",
     session_id,
 )
 
-conversation = [(type, message) for type, message in cursor.fetchall()]
+conversation = [
+    (type, message, timestamp) for type, message, timestamp in cursor.fetchall()
+]
 
 
-llm = ChatOpenAI(temperature=0.7, model="gpt-3.5-turbo-1106")
+llm = ChatOpenAI(model="gpt-3.5-turbo-1106", temperature=0.7)
 
 messages = []
+messages.append(
+    SystemMessage(
+        content="Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia. Use the conversation history as context. If the question is too vague, respond by asking for clarification. For information tied to time, use the tool web-search to search for the most recent information possible."
+    )
+)
 for message in conversation:
     if message[0] == "human":
         messages.append(HumanMessage(content=message[1]))
@@ -103,8 +120,10 @@ enset_chain = RetrievalQA(
 
 general_chain = ConversationChain(llm=llm)
 
-web_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_WEB)
+google_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_WEB)
 enset_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_ENSET)
+web_search = TavilySearchResults(max_results=5)
+
 
 tools = [
     Tool(
@@ -112,33 +131,32 @@ tools = [
         func=enset_chain.invoke,
         description="Useful when you need to answer ENSET-related questions",
     ),
-    # Tool(
-    #     name="enset-search",
-    #     func=web_search.invoke,
-    #     description="Useful for when you need to look up ENSET-related questions, use only after trying with qa-enset first",
-    # ),
-    # Tool(
-    #     name="qa-general",
-    #     func=general_chain.invoke,
-    #     description="Useful when you need to answer non-ENSET-related questions, or when qa-enset or enset-search don't prove useful",
-    # ),
-    # Tool(
-    #     name="web-search",
-    #     func=web_search.run,
-    #     description="Useful for when you need to look up the web, get up-to-date information, or when the other tool don't prove useful.",
-    # ),
+    Tool(
+        name="enset-search",
+        func=web_search.invoke,
+        description="Useful for when you need to look up ENSET-related questions, use only after trying with qa-enset first",
+    ),
+    Tool(
+        name="qa-general",
+        func=general_chain.invoke,
+        description="Useful when you need to answer non-ENSET-related questions, or when qa-enset or enset-search don't prove useful",
+    ),
+    Tool(
+        name="web-search",
+        func=web_search.run,
+        description="Useful for when you need to look up the web, get up-to-date information, or when the other tool don't prove useful.",
+    ),
 ]
 
 
 def ask(input: str) -> str:
     result = ""
     try:
-        # agent = create_react_agent(tools=tools, llm=llm)
+        print(messages)
         result = agent_executor.invoke(
             {
-                "input": "what's my name? Only use a tool if needed, otherwise respond with Final Answer",
-                # Notice that chat_history is a string, since this prompt is aimed at LLMs, not chat models
-                "chat_history": "Human: Hi! My name is Bob\nAI: Hello Bob! Nice to meet you",
+                "input": input,
+                "chat_history": messages,
             }
         )
     except Exception as e:
@@ -153,9 +171,9 @@ def ask(input: str) -> str:
     return result
 
 
-system_message = "Your name is EnsetAI, a chatbot that knows everything about ENSET Mohammedia. Use the conversation history as context. If the question is too vague, respond by asking for clarification. For information tied to time, use the tool web-search to search for the most recent information possible."
-prompt = hub.pull("hwchase17/react")
-agent = create_react_agent(llm, tools, prompt)
+prompt = hub.pull("hwchase17/openai-tools-agent")
+agent = create_openai_tools_agent(llm, tools, prompt)
+
 agent_executor = AgentExecutor(
     agent=agent,
     tools=tools,
@@ -166,11 +184,12 @@ agent_executor = AgentExecutor(
     max_iterations=6,
     early_stopping_method="generate",
 )
+
 result = ask(query)
 print(result["output"])
-# cursor.execute(
-#     "INSERT INTO message_store (session_id, message, type, timestamp) VALUES (?, ?, ?, CURRENT_TIMESTAMP), (?, ?, ?, CURRENT_TIMESTAMP)",
-#     [session_id, query, "human", session_id, result, "ai"],
-# )
-# conn.commit()
-# conn.close()
+cursor.execute(
+    "INSERT INTO message_store (session_id, message, type, timestamp) VALUES (?, ?, ?, CURRENT_TIMESTAMP), (?, ?, ?, CURRENT_TIMESTAMP)",
+    [session_id, query, "human", session_id, result["output"], "ai"],
+)
+conn.commit()
+conn.close()
