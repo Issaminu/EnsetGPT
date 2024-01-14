@@ -21,7 +21,6 @@ from langchain.agents import (
     AgentExecutor,
     create_openai_tools_agent,
 )
-from langchain.utilities.google_search import GoogleSearchAPIWrapper
 from langchain.chains.question_answering import load_qa_chain
 import sqlite3
 from dotenv import load_dotenv
@@ -30,7 +29,6 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-GOOGLE_CSE_ID_ENSET = os.getenv("GOOGLE_CSE_ID_ENSET")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 
 PERSIST = True
@@ -114,8 +112,6 @@ enset_chain = RetrievalQA(
 )
 
 general_chain = ConversationChain(llm=llm)
-
-enset_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_ENSET)
 web_search = TavilySearchResults(max_results=5)
 
 
