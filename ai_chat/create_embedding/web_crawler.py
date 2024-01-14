@@ -17,7 +17,7 @@ import concurrent.futures
 domain = "enset-media.ac.ma"  # <-  domain to be crawled
 full_url = "https://www.enset-media.ac.ma/formations/initiales/diplome"  # <- put your domain to be crawled with https or http
 
-MAX_WORKERS = 6  # <- number of threads to be used for crawling
+MAX_WORKERS = 8  # <- number of threads to be used for crawling
 
 
 # Regex pattern to match a URL
