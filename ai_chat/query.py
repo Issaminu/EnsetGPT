@@ -19,10 +19,7 @@ from langchain.agents.agent_types import AgentType
 from langchain_core.messages.system import SystemMessage
 from langchain.agents import (
     AgentExecutor,
-    create_react_agent,
-    create_self_ask_with_search_agent,
     create_openai_tools_agent,
-    initialize_agent,
 )
 from langchain.utilities.google_search import GoogleSearchAPIWrapper
 from langchain.chains.question_answering import load_qa_chain
@@ -33,9 +30,7 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 
 load_dotenv()
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-OPENAI_API_KEY = os.getenv("GOOGLE_API_KEY")
 GOOGLE_CSE_ID_ENSET = os.getenv("GOOGLE_CSE_ID_ENSET")
-GOOGLE_CSE_ID_WEB = os.getenv("GOOGLE_CSE_ID_WEB")
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 
 PERSIST = True
@@ -120,7 +115,6 @@ enset_chain = RetrievalQA(
 
 general_chain = ConversationChain(llm=llm)
 
-google_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_WEB)
 enset_search = GoogleSearchAPIWrapper(google_cse_id=GOOGLE_CSE_ID_ENSET)
 web_search = TavilySearchResults(max_results=5)
 
@@ -132,19 +126,14 @@ tools = [
         description="Useful when you need to answer ENSET-related questions",
     ),
     Tool(
-        name="enset-search",
-        func=web_search.invoke,
-        description="Useful for when you need to look up ENSET-related questions, use only after trying with qa-enset first",
+        name="web-search",
+        func=web_search.run,
+        description="Useful for when you need to look up the web, get up-to-date information, or when qa-enset doesn't prove useful.",
     ),
     Tool(
         name="qa-general",
         func=general_chain.invoke,
-        description="Useful when you need to answer non-ENSET-related questions, or when qa-enset or enset-search don't prove useful",
-    ),
-    Tool(
-        name="web-search",
-        func=web_search.run,
-        description="Useful for when you need to look up the web, get up-to-date information, or when the other tool don't prove useful.",
+        description="Useful when you need to answer general, non-ENSET-related questions.",
     ),
 ]
 
@@ -152,7 +141,6 @@ tools = [
 def ask(input: str) -> str:
     result = ""
     try:
-        print(messages)
         result = agent_executor.invoke(
             {
                 "input": input,
