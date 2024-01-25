@@ -71,7 +71,7 @@ conversation = [
 ]
 
 
-llm = ChatOpenAI(model="gpt-3.5-turbo-1106", temperature=0.7)
+llm = ChatOpenAI(model="gpt-3.5-turbo", temperature=0.7)
 
 messages = []
 messages.append(
