@@ -1,7 +1,3 @@
-env/*
-text/*
-text*
-text_backup/*
+venv**/*
 .env
-autoclean.log
-PDFs*
+env

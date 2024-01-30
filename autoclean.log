@@ -1,0 +1,22 @@
+26-01-2024 01:06:54.08 - INFO - Started validation of input parameters...
+26-01-2024 01:06:54.08 - INFO - Completed validation of input parameters
+26-01-2024 01:06:54.08 - INFO - Started handling of duplicates... Method: "AUTO"
+26-01-2024 01:06:54.08 - DEBUG - Deletion of 108 duplicate(s) succeeded
+26-01-2024 01:06:54.08 - INFO - Completed handling of duplicates in 0.001499 seconds
+26-01-2024 01:06:54.08 - INFO - Started handling of missing values...
+26-01-2024 01:06:54.08 - INFO - Found a total of 338 missing value(s)
+26-01-2024 01:06:54.08 - INFO - Started handling of NUMERICAL missing values... Method: "AUTO"
+26-01-2024 01:06:54.08 - INFO - Started handling of CATEGORICAL missing values... Method: "AUTO"
+26-01-2024 01:06:54.09 - DEBUG - KNN imputation of 336 value(s) succeeded for feature "text"
+26-01-2024 01:06:54.09 - INFO - Completed handling of missing values in 0.012047 seconds
+26-01-2024 01:06:54.09 - INFO - Started handling of outliers... Method: "WINZ"
+26-01-2024 01:06:54.09 - INFO - Completed handling of outliers in 8e-05 seconds
+26-01-2024 01:06:54.09 - INFO - Started conversion of DATETIME features... Granularity: s
+26-01-2024 01:06:54.10 - INFO - Completed conversion of DATETIME features in 0.0074 seconds
+26-01-2024 01:06:54.10 - INFO - Started encoding categorical features... Method: "AUTO"
+26-01-2024 01:06:54.11 - DEBUG - Encoding skipped for feature "fname"
+26-01-2024 01:06:54.11 - DEBUG - Encoding skipped for feature "text"
+26-01-2024 01:06:54.11 - INFO - Completed encoding of categorical features in 0.013027 seconds
+26-01-2024 01:06:54.11 - INFO - Started feature type conversion...
+26-01-2024 01:06:54.11 - INFO - Completed feature type conversion for 0 feature(s) in 0.000121 seconds
+26-01-2024 01:06:54.11 - INFO - AutoClean process completed in 0.039611 seconds
