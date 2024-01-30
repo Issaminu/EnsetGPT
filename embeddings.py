@@ -10,10 +10,7 @@ client = OpenAI()
 # Load the cl100k_base tokenizer which is designed to work with the ada-002 model
 tokenizer = tiktoken.get_encoding("cl100k_base")
 
-if os.path.exists("processed/autocleaned.csv"):
-    df = pd.read_csv("processed/autocleaned.csv", index_col=0)
-else:
-    df = pd.read_csv("processed/scraped.csv", index_col=0)
+df = pd.read_csv("processed/scraped.csv", index_col=0)
 
 df.columns = ["title", "text"]
 
