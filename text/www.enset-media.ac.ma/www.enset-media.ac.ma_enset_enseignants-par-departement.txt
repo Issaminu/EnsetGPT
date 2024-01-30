@@ -1,0 +1,660 @@
+Enseignants par département
+
+
+
+
+
+
+
+
+
+            Département          
+
+
+- Tout -Génie Economie et GestionGénie ElectriqueGénie MécaniqueMathématiques et InformatiqueSciences et Techniques Administratives et  Ingénierie des Compétences
+
+
+
+
+ 
+
+
+ 
+
+
+
+
+
+Département 
+
+Nom 
+
+Prénom 
+
+            Chef de département          
+
+
+
+
+
+Génie Mécanique 
+
+ABTAL 
+
+            Essaid          
+
+
+
+
+
+Génie Mécanique 
+
+ACHOUYAB 
+
+            El hassan          
+
+
+
+
+
+Mathématiques et Informatique 
+
+AHRIZ 
+
+            Souad          
+
+
+
+
+
+Mathématiques et Informatique 
+
+AKEF 
+
+            Fatiha          
+
+
+
+
+
+Génie Economie et Gestion 
+
+AMIFI 
+
+            Hamid           
+
+
+
+
+
+Génie Economie et Gestion 
+
+ANTRA 
+
+            Loubna          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+AOULA 
+
+            Es-saadia          
+
+ 
+
+
+
+Génie Electrique 
+
+BAHATTI 
+
+            Lhoussain          
+
+ 
+
+
+
+Génie Mécanique 
+
+BAHRAR 
+
+            Bennasser          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+BAHYAOUI 
+
+            Latifa          
+
+
+
+
+
+Génie Economie et Gestion 
+
+BELAFHAILI 
+
+            Mohamed          
+
+ 
+
+
+
+Génie Economie et Gestion 
+
+BEN HOUAD 
+
+            Mohamed          
+
+
+
+
+
+Génie Mécanique 
+
+BENCHARA 
+
+            El houssine          
+
+
+
+
+
+Mathématiques et Informatique 
+
+BENMOUSSA 
+
+            Nezha          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+BERRADA ALLAM 
+
+            Rabia          
+
+
+
+
+
+Génie Economie et Gestion 
+
+BOUAZZAMA 
+
+            Youssef          
+
+
+
+
+
+Mathématiques et Informatique 
+
+BOUIHI 
+
+            Bouchra          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+CHAHM 
+
+            Hanane          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+CHALFAOUAT 
+
+            Abderrahim          
+
+
+
+
+
+Mathématiques et Informatique 
+
+DAAIF 
+
+            Abdelaziz          
+
+ 
+
+
+
+Génie Mécanique 
+
+ECH-CHHIBAT 
+
+            My el houssine          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+EL ABBASSI 
+
+            Fatima          
+
+
+
+
+
+Génie Economie et Gestion 
+
+EL ABDIOU" 
+
+            Abdeljalil          
+
+
+
+
+
+Génie Economie et Gestion 
+
+EL FIGHA 
+
+            Abdennasser          
+
+
+
+
+
+Mathématiques et Informatique 
+
+EL GUEMMAT 
+
+            Kamal          
+
+
+
+
+
+Génie Electrique 
+
+EL KHAILI 
+
+            Mohamed          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+EL OUAFI 
+
+            Lalla mariem          
+
+
+
+
+
+Génie Electrique 
+
+ELMAGRI 
+
+            Abdelmounime          
+
+
+
+
+
+Génie Economie et Gestion 
+
+EN NHAILI 
+
+            Mohamed          
+
+
+
+
+
+Génie Mécanique 
+
+HAMMADI 
+
+            Chaiti          
+
+
+
+
+
+Génie Economie et Gestion 
+
+HAMZA 
+
+            Abdelwahed          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+IDRISSI 
+
+            Hamida          
+
+
+
+
+
+Mathématiques et Informatique 
+
+ILLOUSSAMEN 
+
+            El hossein          
+
+
+
+
+
+Génie Mécanique 
+
+JAMMOUKH 
+
+            Mustapha          
+
+
+
+
+
+Génie Economie et Gestion 
+
+KHANFAR 
+
+            Fatima zahra          
+
+
+
+
+
+Mathématiques et Informatique 
+
+KHIAT 
+
+            Azeddine          
+
+
+
+
+
+Génie Electrique 
+
+LAJOUAD 
+
+            Rachid          
+
+
+
+
+
+Mathématiques et Informatique 
+
+MESTARI 
+
+            Mohammed          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+MOUDHICH 
+
+            Abdelhak          
+
+
+
+
+
+Mathématiques et Informatique 
+
+MOUFID 
+
+            Mohamed          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+MOUSTAID 
+
+            Driss          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+NAIM 
+
+            Leila          
+
+
+
+
+
+Mathématiques et Informatique 
+
+NAJI 
+
+            Abdelouahab          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+NAJOUA 
+
+            Aouatif          
+
+
+
+
+
+Génie Economie et Gestion 
+
+NASSEF 
+
+            Abderrahim          
+
+
+
+
+
+Génie Mécanique 
+
+NISSABOURI 
+
+            Salah          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+OUAKKACH 
+
+            Abdelkrim          
+
+
+
+
+
+Mathématiques et Informatique 
+
+QBADOU 
+
+            Mohammed          
+
+
+
+
+
+Génie Electrique 
+
+RAFIK 
+
+            Mohamed          
+
+
+
+
+
+Génie Electrique 
+
+RAIHANI 
+
+            Abdelhadi          
+
+
+
+
+
+Mathématiques et Informatique 
+
+REBBANI 
+
+            Ahmed          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+RIAD 
+
+            Zahra          
+
+
+
+
+
+Génie Mécanique 
+
+SAMRI 
+
+            Hassan          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+SOULAMI 
+
+            Maha           
+
+
+
+
+
+Mathématiques et Informatique 
+
+TADLAOUI 
+
+            Ahmed          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+TAKI EDDINE 
+
+            Najib          
+
+
+
+
+
+Mathématiques et Informatique 
+
+YOUSSFI 
+
+            Mohamed          
+
+
+
+
+
+Génie Electrique 
+
+ZAGGAF 
+
+            Mohammed hicham          
+
+
+
+
+
+Génie Mécanique 
+
+ZAHIRI 
+
+            Laidi          
+
+ 
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+ZAKI 
+
+            Naoual          
+
+
+
+
+
+Sciences et Techniques Administratives et  Ingénierie des Compétences 
+
+ZERHOUNI 
+
+            Abdouh hanane          
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+ 
+
+

@@ -1,0 +1,900 @@
+
+
+
+
+
+
+
+
+
+
+| ENSET Mohammedia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aller au contenu principal
+
+
+
+
+
+
+  
+
+
+
+Actualités
+Calendrier
+f
+y
+Se connecter
+ 
+
+
+
+
+Formulaire de recherche
+
+Rechercher 
+
+
+
+
+
+ 
+
+
+
+
+Menu principalAccueil
+Notre Ecole
+Formation Initiale
+Formation Continue
+RECHERCHE
+Etudiant
+ENT
+Appels d'offres
+Contact
+ 
+ 
+
+
+Filières par diplôme
+Filières par département
+Cycle Ingénieurs
+Cahiers des normes
+ 
+
+
+
+
+
+
+
+
+Vous êtes iciAccueil 
+
+
+
+
+
+
+GEER - Génie Electrique et Energies Renouvelables  
+
+
+    Semestre 1 
+
+ SEER-S1M1 - Mathématique 1 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Analyse Numérique          
+
+
+
+            Probabilités  et statistiques          
+
+
+
+
+  
+
+ SEER-S1M2 - Mécanique Energétique 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Mécanique des Fluides           
+
+
+
+            Thermodynamique          
+
+
+
+
+  
+
+ SEER-S1M3 - Informatique 1 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Algorithmique et programmation langage C          
+
+
+
+            Système d'Exploitation Unix          
+
+
+
+
+  
+
+ SEER-S1M4 - Électrotechnique générale 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Circuits électriques et magnétiques          
+
+
+
+            Systèmes polyphasés et transformateurs          
+
+
+
+
+  
+
+ SEER-S1M5 - Electronique  analogique 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Fonctions électroniques analogiques et chaines d'acquisition          
+
+
+
+            Physique des composants électronique et capteurs          
+
+
+
+
+  
+
+ SEER-S1M6 - Economie et environnement de l’entreprise  
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Economie générale          
+
+
+
+            Environnement socio-économique et institutionnel          
+
+
+
+
+  
+
+ SEER-S1M7 - Techniques d’expression et de communication 1 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Anglais 1          
+
+
+
+            Stage Personnel 1          
+
+
+
+            Techniques de communication en langue française 1          
+
+
+
+
+  
+
+    Semestre 2 
+
+ SEER-S2M1 - Mathématiques 2 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Modélisation stochastique          
+
+
+
+            Traitement du signal          
+
+
+
+
+  
+
+ SEER-S2M2 - Techniques  de l'Ingénieur 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Conception Mécanique et Dessin Assisté par Ordinateur          
+
+
+
+            Techniques de réalisation électroniques et électriques          
+
+
+
+
+  
+
+ SEER-S2M3 - Electronique Numérique 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Automates programmables          
+
+
+
+            Systèmes logiques          
+
+
+
+
+  
+
+ SEER-S2M4 - Electrotechnique et Electronique de puissance 1 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Conversion électromécanique DC          
+
+
+
+            Electronique de Puissance1          
+
+
+
+
+  
+
+ SEER-S2M5 - Automatique Linéaire 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Régulateurs et Représentation d'état          
+
+
+
+            Systèmes échantillonnés           
+
+
+
+
+  
+
+ SEER-S2M6 - Informatique 2 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Modélisation et Programmation Orientée Objet           
+
+
+
+            Réseaux  Informatiques          
+
+
+
+
+  
+
+ SEER-S2M7 - Comptabilité et Gestion 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Comptabilité générale          
+
+
+
+            Gestion de l'entreprise          
+
+
+
+
+  
+
+ SEER-S2M8 - Techniques d’expression et de communication 2 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Anglais 2          
+
+
+
+            Techniques de communication en langue française 2          
+
+
+
+
+  
+
+    Semestre 3 
+
+ SEER-S3M1 - Mathématiques 3 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Recherche Opérationnelle          
+
+
+
+            Traitement du signal Avancé          
+
+
+
+
+  
+
+ SEER-S3M2 - Electrotechnique et Electronique de puissance 2 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Conversion électromécanique AC          
+
+
+
+            Electronique de Puissance 2          
+
+
+
+
+  
+
+ SEER-S3M3 - Réseaux électriques 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Production Transport Distribution Energie Electrique          
+
+
+
+
+  
+
+ SEER-S3M4 - Informatique industrielle 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Microcontrôleurs  et DSP          
+
+
+
+            Technologie Embarquée          
+
+
+
+
+  
+
+ SEER-S3M5 - Commande des Systèmes 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Asservissement Non Linéaire et commandes optimale           
+
+
+
+            Réseaux locaux industriels          
+
+
+
+
+  
+
+ SEER-S3M6 - Gestion Commerciale et de Production 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Gestion commerciale et Marketing          
+
+
+
+            Gestion de la production et de la qualité          
+
+
+
+
+  
+
+ SEER-S3M7 - Techniques d’expression et de communication 3 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Anglais 3          
+
+
+
+            Techniques de communication en langue française 3          
+
+
+
+
+  
+
+ SEER-S3M8 - Stage d'Initiation  
+
+    Semestre 4 
+
+ SEER-S4M1 - Analyse de données 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Analyse statistique de données          
+
+
+
+
+  
+
+ SEER-S4M2 - Matériaux pour l'ingénieur  
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Matériaux et composites          
+
+
+
+            Résistance de matériaux          
+
+
+
+
+  
+
+ SEER-S4M3 - Energie Renouvelables 1 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Gisement éolien et Solaire          
+
+
+
+            Machines thermiques et hydrauliques          
+
+
+
+
+  
+
+ SEER-S4M4 - Outils de Modélisation et Simulation 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Modélisation des systèmes électriques          
+
+
+
+            Outils de Simulation d'une chaine de conversion d'énergie          
+
+
+
+
+  
+
+ SEER-S4M5 - Actionneurs Electriques  
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Commande des actionneurs électriques          
+
+
+
+            Modélisation des systèmes électriques          
+
+
+
+
+  
+
+ SEER-S4M6 - Entreprenariat 1 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Droit de l’entreprise et des TIC          
+
+
+
+            Initiation à l’entreprenariat          
+
+
+
+
+  
+
+ SEER-S4M7 - Techniques d’expression et de communication 4 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Anglais 4           
+
+
+
+            Ethique et Responsabilité Sociétale des Entreprises          
+
+
+
+
+  
+
+ SEER-S4M8 - Stage Personnel 2  
+
+    Semestre 5 
+
+ SEER-S5M1 - Energie Renouvelables 2 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Chaine de conversion éolienne          
+
+
+
+            Contrôle et exploitation des aérogénérateurs          
+
+
+
+
+  
+
+ SEER-S5M2 - Energie Renouvelables 3 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Contrôle et exploitation d'une mini-centrale solaire thermique          
+
+
+
+
+  
+
+ SEER-S5M3 - Stockage et Cogénération 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Systèmes de stockage          
+
+
+
+            Systèmes hybrides et cogénération          
+
+
+
+
+  
+
+ SEER-S5M4 - Réseaux Intélligents et Audit  
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Architecture et sécurisation  des réseaux intelligents           
+
+
+
+            Audit et efficacité énergétique          
+
+
+
+
+  
+
+ SEER-S5M5 - Systèmes d'Information de Production d'Energie Electrique 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            ERP pour l'énergie électrique et Bureau d'études          
+
+
+
+            Systèmes d'information Géographiques          
+
+
+
+
+  
+
+ SEER-S5M6 - Entreprenariat 2 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Contrôle de Gestion          
+
+
+
+            Gestion de Projets          
+
+
+
+
+  
+
+ SEER-S5M7 - Psychosociologie des Organisations et Gestion des Ressources Humaines 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Gestion des Ressources Humaines          
+
+
+
+            Psychosociologie des Organisations          
+
+
+
+
+  
+
+ SEER-S5M8 - Stage Ingénieur  
+
+    Semestre 6 
+
+ SEER-S6M1 - Projet de Fin d'Etude (PFE)  
+
+
+
+
+
+
+     Les modules et éléments de modules sont donnés à titre indicatif. Les valeurs fournies  peuvent être incomplètes.
+
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Actualités 
+
+
+
+  
+ ورشة تكوين متطوعين للطالبات و الطلبة في حالة اعاقة اثناء الامتحانات 
+
+ إعــــلان 
+
+ Compétition de dessin 
+
+  Avis d’inscription au cycle doctoral 2023-2024 
+
+ Job Interview 
+ 
+
+
+    Toute l'actualité  
+
+ 
+
+
+Liens utiles
+
+Ancien site ducycle préparatoires à l'agrégation (CPA) en économie et gestionAssurance maladie des étudiants 
+
+
+
+
+
+
+
+Ecole Normale Supérieure de l'Enseignement Technique
+BP 159 Bd Hassan II Mohammedia
+Tél. : 05 23 32 22 20 - 05 23 32 35 30
+Fax : 05 23 32 25 46
+
+
+
+
+
+
+

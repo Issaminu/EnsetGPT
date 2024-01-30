@@ -1,0 +1,528 @@
+
+
+
+
+
+
+
+
+
+
+| ENSET Mohammedia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aller au contenu principal
+
+
+
+
+
+
+  
+
+
+
+Actualités
+Calendrier
+f
+y
+Se connecter
+ 
+
+
+
+
+Formulaire de recherche
+
+Rechercher 
+
+
+
+
+
+ 
+
+
+
+
+Menu principalAccueil
+Notre Ecole
+Formation Initiale
+Formation Continue
+RECHERCHE
+Etudiant
+ENT
+Appels d'offres
+Contact
+ 
+ 
+
+
+Filières par diplôme
+Filières par départements
+ 
+
+
+
+
+
+
+
+
+Vous êtes iciAccueil 
+
+
+
+
+
+
+II-BDCC - Ingénierie Informatique, Big Data et Cloud Computing  
+
+
+    Semestre 1 
+
+ II-BDCC_S1M1 - Technologie Web 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Technologie Web          
+
+
+
+
+  
+
+ II-BDCC_S1M2 - UML et programmation orientée objet JAVA 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Programmation Orientée Objet Java          
+
+
+
+            UML          
+
+
+
+
+  
+
+ II-BDCC_S1M3 - Bases de données semi-structurées et web services 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Bases de données semi-structurées          
+
+
+
+            Web Services          
+
+
+
+
+  
+
+ II-BDCC_S1M4 - Big Data : fondements et architectures 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Fondements du Big data          
+
+
+
+            Mise en œuvre des Architectures orientées stockage          
+
+
+
+
+  
+
+ II-BDCC_S1M5 - Mathématiques pour les sciences de données 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Probabilités et Statistiques          
+
+
+
+            Recherche Opérationnelle          
+
+
+
+
+  
+
+ II-BDCC_S1M6 - Techniques d’expression et de communication 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Anglais          
+
+
+
+            Techniques d’expression et de communication          
+
+
+
+
+  
+
+    Semestre 2 
+
+ II-BDCC_S2M1 - Architectures distribuées et Middlewares 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Architecture Distribuée JEE          
+
+
+
+            Middlewares Pour Systèmes Distribués          
+
+
+
+
+  
+
+ II-BDCC_S2M2 - Développement Mobile et Internet des Objets 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Développement Mobile          
+
+
+
+            Internet des objets          
+
+
+
+
+  
+
+ II-BDCC_S2M3 - Systèmes et Réseaux 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Réseaux Informatiques          
+
+
+
+            UNIX          
+
+
+
+
+  
+
+ II-BDCC_S2M4 - Sciences de données : approches statistiques 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Optimisation statistiques          
+
+
+
+            Statistiques en grande dimension et apprentissage          
+
+
+
+
+  
+
+ II-BDCC_S2M5 - Intelligence artificielle et Systèmes Multi-agents 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Intelligence Artificielle          
+
+
+
+            Systèmes Multi-agents          
+
+
+
+
+  
+
+ II-BDCC_S2M6 - Outils de communications 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Anglais 2          
+
+
+
+            Techniques de communication en langue française 2          
+
+
+
+
+  
+
+    Semestre 3 
+
+ II-BDCC_S3M1 - Traitement parallèle en Big Data 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Architectures Orientées Calcul Parallèle          
+
+
+
+            Architectures Orientées Stream Processing          
+
+
+
+
+  
+
+ II-BDCC_S3M2 - Ingénierie des infrastructures Cloud et DEVOPS 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            DEVOPS          
+
+
+
+            Ingénierie des infrastructures Cloud          
+
+
+
+
+  
+
+ II-BDCC_S3M3 - Management et audit des systèmes d'information 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Management et Audit des systèmes d’information          
+
+
+
+
+  
+
+ II-BDCC_S3M4 - Sécurité des Systèmes d’Information et Qualité Logicielle 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Qualité et Industrialisation Logicielle          
+
+
+
+            Sécurité des Systèmes d'Information distribués          
+
+
+
+
+  
+
+ II-BDCC_S3M5 - Ingénierie des systèmes décisionnels 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Data Mining, Machines et Deep Learning          
+
+
+
+            Systèmes décisionnels          
+
+
+
+
+  
+
+ II-BDCC_S3M6 - Gestion des projets et entrepreneuriat 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Entrepreneuriat          
+
+
+
+            Gestion des Projets          
+
+
+
+
+  
+
+    Semestre 4 
+
+ II-BDCC_S4M1 - Stage ou mémoire  
+
+
+
+
+
+
+     Les modules et éléments de modules sont donnés à titre indicatif. Les valeurs fournies  sont incomplètes et peuvent comporter des erreurs.
+
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Actualités 
+
+
+
+  
+ ورشة تكوين متطوعين للطالبات و الطلبة في حالة اعاقة اثناء الامتحانات 
+
+ إعــــلان 
+
+ Compétition de dessin 
+
+  Avis d’inscription au cycle doctoral 2023-2024 
+
+ Job Interview 
+ 
+
+
+    Toute l'actualité  
+
+ 
+
+
+Liens utiles
+
+Ancien site ducycle préparatoires à l'agrégation (CPA) en économie et gestionAssurance maladie des étudiants 
+
+
+
+
+
+
+
+Ecole Normale Supérieure de l'Enseignement Technique
+BP 159 Bd Hassan II Mohammedia
+Tél. : 05 23 32 22 20 - 05 23 32 35 30
+Fax : 05 23 32 25 46
+
+
+
+
+
+
+

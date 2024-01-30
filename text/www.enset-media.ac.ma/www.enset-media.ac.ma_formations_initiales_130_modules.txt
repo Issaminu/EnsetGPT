@@ -1,0 +1,802 @@
+
+
+
+
+
+
+
+
+
+
+| ENSET Mohammedia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Aller au contenu principal
+
+
+
+
+
+
+  
+
+
+
+Actualités
+Calendrier
+f
+y
+Se connecter
+ 
+
+
+
+
+Formulaire de recherche
+
+Rechercher 
+
+
+
+
+
+ 
+
+
+
+
+Menu principalAccueil
+Notre Ecole
+Formation Initiale
+Formation Continue
+RECHERCHE
+Etudiant
+ENT
+Appels d'offres
+Contact
+ 
+ 
+
+
+Filières par diplôme
+Filières par département
+Cycle Ingénieurs
+Cahiers des normes
+ 
+
+
+
+
+
+
+
+
+Vous êtes iciAccueil 
+
+
+
+
+
+
+CLE-SEG - Sciences Economiques et de Gestion  
+
+
+    Semestre 1 
+
+ ESEG_S1M1 - Economie Générale I 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Economie Générale I          
+
+
+
+
+  
+
+ ESEG_S1M2 - Management des entreprises I 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Management des entreprises I          
+
+
+
+
+  
+
+ ESEG_S1M3 - Environnement Economique I 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Environnement Economique I          
+
+
+
+
+  
+
+ ESEG_S1M4 - Environnement Juridique I 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Environnement Juridique I          
+
+
+
+
+  
+
+ ESEG_S1M5 - Techniques Quantitatives I 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Techniques Quantitatives I          
+
+
+
+
+  
+
+ ESEG_S1M6 - Techniques Quantitatives II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Techniques Quantitatives II          
+
+
+
+
+  
+
+ ESEG_S1M7 - Langue et Communication I 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Langue Française          
+
+
+
+            TEC          
+
+
+
+
+  
+
+    Semestre 2 
+
+ ESEG_S2M1 - Economie Générale II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Economie Générale II          
+
+
+
+
+  
+
+ ESEG_S2M2 - Management des entreprises II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Management des entreprises II          
+
+
+
+
+  
+
+ ESEG_S2M3 - Environnement Economique II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Environnement Economique II          
+
+
+
+
+  
+
+ ESEG_S2M4 - Environnement Juridique II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Environnement Juridique II          
+
+
+
+
+  
+
+ ESEG_S2M5 - Techniques Quantitatives III 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Techniques Quantitatives III          
+
+
+
+
+  
+
+ ESEG_S2M6 - Langue et Communication II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Langue Anglaise          
+
+
+
+            TEC          
+
+
+
+
+  
+
+ ESEG_S2M7 - Informatique de Gestion I 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Informatique de gestion I          
+
+
+
+
+  
+
+    Semestre 3 
+
+ ESEG_S3M1 - Economie Générale III 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Economie Générale III          
+
+
+
+
+  
+
+ ESEG_S3M2 - Management des entreprises III 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Management des entreprises III          
+
+
+
+
+  
+
+ ESEG_S3M3 - Management Stratégique 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Management Stratégique          
+
+
+
+
+  
+
+ ESEG_S3M4 - Techniques Quantitatives IV 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Techniques Quantitatives IV          
+
+
+
+
+  
+
+ ESEG_S3M5 - Statistique descriptive 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Statistique descriptive I          
+
+
+
+
+  
+
+ ESEG_S3M6 - Langue et Communication III 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Langue Anglaise          
+
+
+
+            TEC 3          
+
+
+
+
+  
+
+    Semestre 4 
+
+ ESEG_S4M1 - Mathématiques Financières 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Mathématiques Financières          
+
+
+
+
+  
+
+ ESEG_S4M2 - Statistique descriptive II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Statistique descriptive II          
+
+
+
+
+  
+
+ ESEG_S4M3 - Sciences de l'Education 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Sciences de l’éducation          
+
+
+
+
+  
+
+ ESEG_S4M4 - Economie Générale IV 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Economie Générale IV          
+
+
+
+
+  
+
+ ESEG_S4M5 - Management des entreprises IV 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Management des entreprises IV          
+
+
+
+
+  
+
+ ESEG_S4M6 - Techniques quantitatives V 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Techniques quantitatives V          
+
+
+
+
+  
+
+    Semestre 5 
+
+ ESEG_S5M1 - Informatiques de gestion II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Informatiques de gestion II          
+
+
+
+
+  
+
+ ESEG_S5M2 - Didactique générale 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Didactique générale          
+
+
+
+
+  
+
+ ESEG_S5M3 - Déontologie du métier et éducation aux valeurs 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            processus cognitif          
+
+
+
+            Psychologie du développement cognitif          
+
+
+
+
+  
+
+ ESEG_S5M4 - Langue & TIC 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            TEC          
+
+
+
+            TICE          
+
+
+
+
+  
+
+ ESEG_S5M5 - Didactique de la comptabilité 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Didactique de la Production de l’information Financière          
+
+
+
+
+  
+
+ ESEG_S5M6 - Didactique de l’économie I 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Didactique Matière          
+
+
+
+
+  
+
+    Semestre 6 
+
+ ESEG_S6M1 - Didactique des sciences Economique et de Gestion 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Didactique de la Statistique descriptive          
+
+
+
+            Didactique des Mathématiques Financières          
+
+
+
+
+  
+
+ ESEG_S6M2 - Didactique de la comptabilité 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Didactique de la Comptabilité de gestion          
+
+
+
+            Didactique de la Préparation et élaboration des états de synthèse          
+
+
+
+
+  
+
+ ESEG_S6M3 - Didactique de l’économie II 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Didactique Matière          
+
+
+
+
+  
+
+ ESEG_S6M4 - Micro Enseignement 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Micro Enseignement          
+
+
+
+
+  
+
+ ESEG_S6M5 - Stage professionnel  
+
+ ESEG_S6M6 - Projet de Fin d’Etudes (PFE) 
+ Eléments de module:  
+
+ 
+
+
+
+
+
+            Projet de Fin d’Etudes          
+
+
+
+
+  
+
+
+
+
+
+
+     Les modules et éléments de modules sont donnés à titre indicatif. Les valeurs fournies  peuvent être incomplètes.
+
+
+ 
+ 
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+Actualités 
+
+
+
+  
+ ورشة تكوين متطوعين للطالبات و الطلبة في حالة اعاقة اثناء الامتحانات 
+
+ إعــــلان 
+
+ Compétition de dessin 
+
+  Avis d’inscription au cycle doctoral 2023-2024 
+
+ Job Interview 
+ 
+
+
+    Toute l'actualité  
+
+ 
+
+
+Liens utiles
+
+Ancien site ducycle préparatoires à l'agrégation (CPA) en économie et gestionAssurance maladie des étudiants 
+
+
+
+
+
+
+
+Ecole Normale Supérieure de l'Enseignement Technique
+BP 159 Bd Hassan II Mohammedia
+Tél. : 05 23 32 22 20 - 05 23 32 35 30
+Fax : 05 23 32 25 46
+
+
+
+
+
+
+

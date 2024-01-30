@@ -1,0 +1,146 @@
+Cycles d'Ingénieurs
+
+
+
+ Notes importantes :Les candidats sont amenés à renseigner dans ce formulaire les notes des semestres S1, S2, S3 et S4.Les candidats ayant le diplôme BTS ou DTS doivent  :Dupliquer la moyenne générale de première année dans les champs S1 et S2Dupliquer la moyenne générale de deuxième année  dans les champs  S3 et S4. L'admission au concours ne sera définitive qu'après le dépôt du dossier complet.Durant toutes les étapes du concours, depuis la candidature jusqu'à l'inscription définitive, toute fausse déclaration détectée entraînera, à tout moment de la procédure , le rejet de la candidature.Le diplôme doit être obtenu en deux années successives.Adresse email de contact en cas de problème à signaler : concours@enset-media.ac.ma 
+
+Choix des filières
+Filières :  *
+
+ GEER - Génie Electrique et Energies Renouvelables 
+
+
+ GECSI - Génie Electrique et Contrôle des Systèmes Industriels 
+
+
+ GIL - Génie Industriel et Logistique 
+
+
+ GMSI - Génie Mécanique des Systèmes Industriels 
+
+
+ GLSID - Génie du Logiciel et des Systèmes Informatiques Distribués 
+
+
+ II-BDCC - Ingénierie Informatique : Big Data et Cloud Computing 
+
+
+ II-CCN - Ingénierie Informatique-Cyber Sécurité et Confiance Numérique 
+
+
+
+Vous pouvez postuler pour plusieurs filières d'ingénieurs en une seule fois.
+
+
+
+Informations générales
+CNE *
+
+Code National de l'Etudiant sur 10 chiffres 
+
+
+CNI *
+
+Numéro de la Carte Nationale d'Identité
+
+
+Nom *
+
+
+
+Prénom *
+
+
+Date de naissance  *
+
+Date 
+
+ Par ex., 30/01/2024
+
+
+
+
+
+Email *
+
+
+
+Téléphone *
+
+Exemple : (+212) 663 12 34 56 
+
+
+Adresse *
+
+
+
+Ville *
+
+
+
+Année d'obtention du bac *
+
+Exemple 2018
+
+
+DiplômeType de diplôme
+Diplôme *
+- Choisir une valeur -DUTDEUGDEUSTDEUPBTSDTSAUTRE
+Le diplôme Bac + 2 que vous avez obtenu. 
+Le diplôme doit être obtenu en deux années successives.
+
+
+Autre 
+
+
+
+Spécialité du diplôme *
+
+
+
+Année d'obtention du diplôme *
+
+Exemple : 2021
+
+
+Etablissement *
+
+Faculté, Académie, école, ....
+
+
+Moyennes des semestres
+Semestre 1 *
+
+Utilisez la virgule comme séparateur décimal. Ex. 17,992
+
+
+Semestre 2 *
+
+
+
+Semestre 3 *
+
+
+
+Semestre 4 *
+
+
+
+
+
+
+
+Quel code est dissimulé dans l'image ? *
+
+Saisir les caractères affichés dans l'image.
+
+ 
+
+
+
+
+
+
+ 
+
+

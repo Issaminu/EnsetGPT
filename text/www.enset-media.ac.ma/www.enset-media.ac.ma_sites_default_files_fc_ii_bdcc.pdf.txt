@@ -1,0 +1,117 @@
+Master de l’Université Hassan II de Casablanca, ENSET Mohammedia En Formation Continue 
+Ingénierie Informatique, Big Data et Cloud Computing (II-BDCC)
+LaMaser «Ingénierie Informatique, BigData etCloud
+Computing (II-BDCC) »apour vocation deformer desIngénieurs
+Cadre avec descompétences combinant, enplus desSoft Skills :
+•L’Ingénierie Logicielle ,
+•L’Ingénierie desInfrastructures etDevOps ,
+•L’Ingénierie BigData etSciences dedonnées
+Partie Ingénierie Logicielle :
+Pour cette compétence, vous apprendrez tous les 
+modules nécessaires pour devenir un véritable 
+ingénieur en Génie Logicielle à savoir :
+•Conception Orientée Objet et UML
+•Programmation Orientée Objet Java
+•Design Patterns (Patrons de conceptions) et 
+Programmation Orientée Aspect (AOP)
+•Génie et Qualité Logicielle
+•Technologie Web (HTML, CSS, Java Script, 
+PHP , Framework PHP , Services Internet et 
+Intranet)
+•Technologie XML et Web Services
+•Architecture JEE (Inversion of Control, Spring 
+IOC, JPA, Hibernate, Spring Data, Spring MVC) 
+•Systèmes Distribués et Middlewares (Web 
+services SOAP et RESTful, RMI, CORBA, GRPC, 
+Sysèmes distribués asynchrones avec JMS, 
+RabbitMQ , KAFKA)
+•Architectures Distribuées basées sur les 
+Micro -services (Spring Boot, Spring Cloud, 
+AXON, CQRS, Event Sourcing )
+•Framework de Développement Frontend 
+Web : Angular /React
+•Développement Mobile Natif et Cross 
+Plateforme : Android et FLUTTER
+•Sécurité des application Web (OWASP , JWT , 
+OAuth2, OpenId Connect, Keycloak , Spring 
+Security)
+Partie Ingénierie desinfrastructure etDevOps :
+Pour cette compétence, vous apprendrez tous 
+les modules nécessaires pour devenir un 
+Ingénieur Système, Cloud et DevOps à savoir :
+▪Ingénierie des Réseaux Informatiques
+▪Système d’exploitation LINUX
+▪Virtualisation des infrastructure 
+(VMware/VirtualBox)
+▪Containerisation et Orchestration des 
+conteneurs : Docker, Docker SWARM, 
+Kubernetes
+▪Cloud Computing : GCP/AWS
+▪DevOps : 
+oGestion de code source : Git, GitLab , 
+oTests d’intégration continue / 
+déploiement continu :  Jenkins, 
+oConteneurs et Orchestration : Docker, 
+Kubernetes , 
+oCloud providers : GCP , AWS, 
+oAutomatisation et gestion des 
+configurations : Ansible, 
+oMonitoring et Alerting : Grafana , ELK 
+oOutils de gestion de projet : JIRA, 
+oGestion des secrets : Vault, 
+oAudit du code source : Sonar
+▪Sécurité des Systèmes d’Information et 
+Cyber Circuité
+▪Internet des Objet (IOT)Partie Ingénierie BigData etSciences de
+données :
+Pour cette compétence, vous apprendrez 
+tous les modules nécessaires pour devenir 
+un ingénieur Data Scientist et Big Data à 
+savoir :
+•Probabilité s
+•Statistiques
+•Statistiques en Grandes Dimensions
+•Recherche opérationnelle
+•Intelligence Artificielle
+•Sciences de données
+•Machines et Deep Learning (Tensor 
+Flow, KERAS, TensorFlowJS , 
+Deeplearning4J) 
+•Computer Vision
+•Systèmes d’Information
+•Systèmes Multi Agents et Intelligence 
+Artificielle Distribuée
+•Big Data
+oArchitectures Orientée Sockage : 
+HDFS, HADOOP , NoSQL, MangoDb , 
+Casandra
+oTraitement Distribué enBig Data:
+-Batch Processing : Eco Système
+Spark, Spring Batch, Hazzelcast , 
+-Stream processing : KAFKA Streams
+oBig Data Analytics & VisualisationPartie Soft Skills : 
+En plus des ces modules techniques, ce Master 
+vous permettra aussi de renforcer vos Soft Skills
+avec des modules comme :
+▪Techniques d’Expression et de Communication
+▪Anglais
+▪Gestion de Projets
+▪Entrepreneuriat
+▪Méthodologie de RechercheConditions d’accès :
+▪Avoir un diplôme BAC+ 3
+publique ouprivé (Licence ou
+équivaillent, Ingénieur) en
+formation initiale oucontinueContact :
+•Coordonnateur Pédagogique :Pr.Mohamed YOUSSFI
+•Sivous êtes intéressé, veuillez :envoyer votre CVpar:
+▪Email :m.youssfi@enset -media .ac.ma
+▪EtWhatsApp :+212 661 326 837
+Contenu Pédagogique duMaster :Type etMode deFormation :
+CeMaster assure une formation deniveau Ingénieur en:
+▪Deux années (M1etM2)dont ledernier semestre estréservé auProjet ouStage defind’étude
+▪Formation Continue (Weekend :Samedi etdimanche)
+▪Laformation estassurée enmode Hybride .C’est -à-dire que vous aurez lechoix entre lemode présentiel etle
+mode distantiel .
+▪Tous lescours assurés sont enregistrés auformat vidéo .Cequivous permettrai aussi desuivre lescours en
+mode asynchrone dans lecasoùvous ratiez lescours enlive.Numéro delapromotion :
+▪Promotion N°3:2021 -2023

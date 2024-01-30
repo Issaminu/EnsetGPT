@@ -1,0 +1,41 @@
+
+
+Etudiant
+https://www.enset-media.ac.ma/taxonomy/term/229/all
+    
+fr
+
+
+ورشة تكوين متطوعين للطالبات و الطلبة في حالة اعاقة اثناء الامتحانات
+https://www.enset-media.ac.ma/article/wrsh-tkwyn-mttwyn-lltlbt-w-ltlb-fy-hl-q-thn-lmthnt
+    <div class="field field-name-field-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even" rel="" resource="https://www.enset-media.ac.ma/sites/default/files/styles/thumbnail/public/images_aticles/uh2c.jpg?itok=W-jDxfy4"><a href="/article/wrsh-tkwyn-mttwyn-lltlbt-w-ltlb-fy-hl-q-thn-lmthnt"><img typeof="foaf:Image" src="https://www.enset-media.ac.ma/sites/default/files/styles/thumbnail/public/images_aticles/uh2c.jpg?itok=W-jDxfy4" width="71" height="100" alt="" /></a></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"> <p><strong><big> تنظم جامعة الحسن الثاني بالدار البيضاء ورشة تكوين متطوعين مرافقين للطالبات و الطلبة في حالة إعاقة أثناء الامتحانات</big></strong></p> </div></div></div><span property="dc:title" content="ورشة تكوين متطوعين للطالبات و الطلبة في حالة اعاقة اثناء الامتحانات" class="rdf-meta element-hidden"></span>
+Thu, 14 Dec 2023 08:36:13 +0000
+ASMAE
+21632 at https://www.enset-media.ac.ma
+
+
+Compétition de dessin
+https://www.enset-media.ac.ma/article/bvn-0
+    <div class="field field-name-field-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even" rel="" resource="https://www.enset-media.ac.ma/sites/default/files/styles/thumbnail/public/images_aticles/staic_0.jpg?itok=zGZ_ANJl"><a href="/article/bvn-0"><img typeof="foaf:Image" src="https://www.enset-media.ac.ma/sites/default/files/styles/thumbnail/public/images_aticles/staic_0.jpg?itok=zGZ_ANJl" width="70" height="100" alt="" /></a></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"> <p><strong>Etes-vous étudiants à l'ENSET ou à l'ENSAD, et vous aimez dessiner?</strong></p><p><span class="marker"><span class="red"><strong>Rejoingnez-nous le Samedi 02  Décembre 2023 de 9h à Midi</strong></span></span></p> </div></div></div><span property="dc:title" content="Compétition de dessin" class="rdf-meta element-hidden"></span>
+Thu, 30 Nov 2023 13:11:32 +0000
+ASMAE
+21630 at https://www.enset-media.ac.ma
+
+
+test
+https://www.enset-media.ac.ma/article/test
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"> <p>blabla</p> </div></div></div><span property="dc:title" content="test" class="rdf-meta element-hidden"></span>
+Fri, 25 Nov 2022 11:07:54 +0000
+ASMAE
+21548 at https://www.enset-media.ac.ma
+
+
+cc
+https://www.enset-media.ac.ma/article/cc
+    <div class="field field-name-field-image field-type-image field-label-hidden"><div class="field-items"><div class="field-item even" rel="" resource="https://www.enset-media.ac.ma/sites/default/files/styles/thumbnail/public/images_aticles/logo_enset_reduit_3.jpg?itok=_Rn_XRtd"><a href="/article/cc"><img typeof="foaf:Image" src="https://www.enset-media.ac.ma/sites/default/files/styles/thumbnail/public/images_aticles/logo_enset_reduit_3.jpg?itok=_Rn_XRtd" width="100" height="23" alt="" /></a></div></div></div><div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"> <p>cc</p> </div></div></div><span property="dc:title" content="cc" class="rdf-meta element-hidden"></span>
+Fri, 25 Nov 2022 09:43:02 +0000
+ASMAE
+21547 at https://www.enset-media.ac.ma
+
+
+
