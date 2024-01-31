@@ -1,5 +1,7 @@
 # EnsetGPT: The ENSET AI Chatbot
 
+![thumbnail](https://raw.githubusercontent.com/Issaminu/EnsetGPT/main/EnsetGPT.png)
+
 An AI-powered chatbot CLI application designed to provide information and answer questions about ENSET Mohammedia. Leveraging the power of advanced natural language processing and machine learning, EnsetGPT is here to make finding information about the school as easy as chatting with a friend.
 
 ## Features
