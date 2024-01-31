@@ -2,7 +2,6 @@ import os
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_community.document_loaders import DirectoryLoader
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.vectorstores import Chroma
 from langchain.indexes import VectorstoreIndexCreator
 from dotenv import load_dotenv
 
@@ -23,10 +22,3 @@ embedding_function = OpenAIEmbeddings(model="text-embedding-3-large", chunk_size
 vector_store = VectorstoreIndexCreator(
     vectorstore_kwargs={"persist_directory": "persist"}
 ).from_loaders([loader])
-
-# query = "What is Khiat?"
-# db = vector_store.vectorstore.similarity_search(query=query)
-# docs = db.similarity_search(query)
-
-# # print results
-# print(docs[0].page_content)
