@@ -1,0 +1,12 @@
+beautifulsoup4==4.12.3
+langchain==0.1.4
+langchain_community==0.0.16
+langchain_core==0.1.17
+langchain_openai==0.0.5
+pdf2image==1.16.3
+pdf2image==1.17.0
+PyPDF2==3.0.1
+pytesseract==0.3.10
+python-dotenv==1.0.1
+Requests==2.31.0
+rich==13.7.0
